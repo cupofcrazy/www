@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "project": {
+    "name": "personal"
+  },
+  "api": {
+    "projectId": "ax8jt3wl",
+    "dataset": "production"
+  }
+}
