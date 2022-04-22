@@ -24,9 +24,7 @@ const container = {
 function ProjectContainer({ projects }: Props)  {
   return (
     <Container 
-      variants={container}
-      initial="hidden"
-      animate="show">
+      >
       { projects.map(project => (
         <ProjectItem key={project._id} project={project} />
       ))}
@@ -44,9 +42,9 @@ const Container = styled(motion.div)`
   margin: 1rem 0;
   
   @media ${mq.md} {
-    /* grid-template-columns: repeat(12, 1fr); */
+    grid-template-columns: repeat(2, 1fr);
   }
   @media ${mq.lg} {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `

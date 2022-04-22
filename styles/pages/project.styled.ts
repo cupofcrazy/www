@@ -6,7 +6,7 @@ import { mq } from "../../utils";
 
 const ProjectTitle = styled.p`
   margin: 1rem 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--accent-color);
 
 `
@@ -34,15 +34,24 @@ const Section = styled(motion.section)`
 const SectionHeading = styled.h2`
   color: var(--accent-color);
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin-bottom: .5rem;
   /* font-family: 'Newsreader', serif;
   font-style: italic; */
 `
 const SectionText = styled.p`
+  /* text-indent: 1rem; */
   color: var(--secondary-color);
   font-weight: 400;
   font-size: 1rem;
+  position: relative;
+
+  /* &:before {
+    content: '-';
+    position: absolute;
+    top: 0;
+    left: -1rem;
+  } */
   /* width: 60%; */
 `
 

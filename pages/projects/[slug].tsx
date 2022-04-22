@@ -55,7 +55,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
         title={project.content.title}
         description={project.content.subtitle}
       />
-      <ProjectLink className={cn({ active: !onScreen })}><Badge>See Live</Badge></ProjectLink>
+  
       <Content>
         <CoverImage>
           <Image
@@ -125,7 +125,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
                 );
             }
           })}
-          <Marquee speed={1}>{project.content.subtitle}</Marquee>
+          <Marquee speed={.8}>{project.content.subtitle}</Marquee>
         </div>
         {
           previousProject && nextProject && <div style={{ display: 'flex', gap: '1rem', width: '100%' }}>

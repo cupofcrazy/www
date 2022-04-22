@@ -65,9 +65,10 @@ export default MyApp;
 
 const Container = styled.div`
   padding: 1rem;
-  margin: 10rem auto 10rem auto;
+  margin: 4.25rem auto 4.25rem auto;
 
   @media ${mq.md} {
+    margin: 10rem auto 10rem auto;
     padding: 1rem;
     width: ${sizes.md};
   }

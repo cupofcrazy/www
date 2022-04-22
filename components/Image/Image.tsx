@@ -103,13 +103,13 @@ const rotate = keyframes`
   
 `
 const BackdropLoader = styled.span`
-    display: inline-block;
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    border-left-color: white;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    animation: ${rotate} 1.2s linear infinite;
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-left-color: white;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: ${rotate} 1.2s linear infinite;
 `
 
 

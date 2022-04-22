@@ -5,17 +5,11 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Fonts */
   @font-face {
-    font-family: "SF Pro";
+    font-family: "Lars";
     font-weight: 300;
-    src: url('/fonts/SFProText-Light.woff') format('woff'),
-    url('/fonts/SFProText-Light.woff2') format('woff2');
-  };
-  @font-face {
-    font-family: "SF Pro";
-    font-weight: 300;
-    src: url('/fonts/SFProText-Regular.woff') format('woff'),
-    url('/fonts/SFProText-Regular.woff2') format('woff2');
-  };
+    src: url('/fonts/Lars-Light.woff') format('woff'),
+    url('/fonts/Lars-Light.woff2') format('woff2');
+  }
   
   /* Box sizing rules */
   *,
@@ -52,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --main-color: #FFF;
     --accent-color: #111;
-    --secondary-color: #777777;
+    --secondary-color: #111111;
     --background-color: #ececec;
     --border-color: #eee;
     --border-radius: .75rem;
@@ -66,7 +60,7 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: smooth; */
     font-size: 14px;
     letter-spacing: 0.25px;
-    font-family: 'Graphik', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    font-family: 'Lars', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
     @media ${mq.md} {
@@ -77,7 +71,7 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 16px;
     }
     @media ${mq.xl3} {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
@@ -95,7 +89,7 @@ export const GlobalStyles = createGlobalStyle`
   /* Set core body defaults */
   body {
     background-color: var(--main-color);
-    min-height: var(--vh);
+    /* min-height: var(--vh); */
     text-rendering: optimizeSpeed;
 
     &.dark {

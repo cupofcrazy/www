@@ -9,7 +9,7 @@ interface MarqueeProps {
 }
 
 export const Marquee: React.FC<MarqueeProps> = ({
-  speed = 1,
+  speed = .5,
   pausable = true,
   children,
 }) => {
