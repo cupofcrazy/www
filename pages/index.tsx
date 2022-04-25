@@ -15,6 +15,7 @@ import { CoverImage } from "../components/Image/CoverImage";
 
 import { formatNumber, mq } from "../utils";
 import type { HomeDoc, ProjectDoc } from "../types";
+import { Marquee } from "components/Marquee";
 
 type Props = {
   home: HomeDoc;
@@ -25,7 +26,7 @@ const Home: NextPage<Props> = ({ home, projects }) => {
   const { width, height } = useWindowResize();
 
   useEffect(() => {
-    document.documentElement.style.setProperty("--vh", `${height}px`);
+    // document.documentElement.style.setProperty("--vh", `${height}px`);
   }, [height]);
 
   return (
@@ -57,6 +58,7 @@ const Home: NextPage<Props> = ({ home, projects }) => {
         </SectionTitle>
         <ProjectContainer projects={projects} />
       </Section>
+      <Marquee>{home.content.seo.title}</Marquee>
     </Container>
   );
 };

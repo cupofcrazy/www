@@ -1,3 +1,4 @@
+import cn from "classnames";
 import format from "date-fns/format";
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
@@ -10,6 +11,7 @@ import { Image } from "../Image";
 
 interface Props {
   project: ProjectDoc;
+  id: number
 }
 
 const variants: Variants = {
@@ -24,50 +26,47 @@ const variants: Variants = {
   },
 };
 
-export const ProjectItem: React.FC<Props> = ({ project }) => {
+export const ProjectItem: React.FC<Props> = ({ project, id }) => {
   console.log({ project });
   return (
-    <StyledLink href={`/projects/${project.content.slug.current}`} passHref>
-      <Container
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+    <Container
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className={cn({ large: id % 3 == 0 && id % 6 == 0 })}
+      data-grid={id}
       >
-        <ProjectImage>
-          <ProjectDetails color={"var(--blur-background)"}>
-            <p>{project.content.subtitle}</p>
-          </ProjectDetails>
-          <Image
-            src={project.content.cover.url}
-            alt={"Project Image"}
-            aspectRatio={1}
-            color={project.content.cover.metadata.palette.vibrant.background}
-          />
-        </ProjectImage>
-        <ProjectInfo>
-          <p>{project.content.title}</p>
-          <Badge>{format(new Date(project.content.created_at), "MMM Y")}</Badge>
-        </ProjectInfo>
+      <StyledLink href={`/projects/${project.content.slug.current}`} passHref>
+        <a>
+          <ProjectImage>
+            <Image
+              src={project.content.cover.url}
+              alt={"Project Image"}
+              aspectRatio={project.content.cover.metadata.dimensions.aspectRatio}
+            />
+          </ProjectImage>
+          <ProjectInfo>
+            <p>{project.content.title}</p>
+            <p>{format(new Date(project.content.created_at), "MMM Y")}</p>
+          </ProjectInfo>
+
+        </a>
         {/* <input type="number" onChange={(e) => setInput(+e.target.value)} /> */}
+        </StyledLink>
       </Container>
-    </StyledLink>
   );
 };
 
 const StyledLink = styled(Link)`
-  display: block;
-  transform: rotate(45deg);
+  /* display: block;
+  transform: rotate(45deg); */
+
   @media ${mq.md} {
     grid-column: 1 / 6;
   }
 `;
 
 const ProjectDetails = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: var(--background-color);
 
   z-index: 2;
@@ -92,19 +91,41 @@ const ProjectDetails = styled.div`
 
 const ProjectImage = styled.div`
   overflow: hidden;
-  border: 1px solid transparent;
-  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  /* border: 1px solid red; */
   transition: all 0.3s ease;
   position: relative;
+  border-radius: .75rem;
+  /* padding: 5%; */
 `;
 const Container = styled(motion.a)`
+  width: 33.3%;
+  /* background-color: var(--border-color); */
+  /* padding: 1rem; */
+  border-radius: 1rem;
+
+  @media ${mq.md} {
+    width: 30%;
+  }
+  
+  /* &:nth-of-type(odd) {
+    grid-row: auto / span 2;
+    grid-column: auto / span 2;
+  } */
+
+  &.large {
+    /* grid-row: auto / span 2;
+    grid-column: auto / span 2; */
+  }
+
+  
   /* padding: 1rem; */
   /* margin-bottom: 1rem; */
   display: block;
-  border-radius: 0.5rem;
+  /* border-radius: 1rem; */
   /* transition: all .3s ease; */
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 
   &:hover,
   :focus {
@@ -127,7 +148,6 @@ const Container = styled(motion.a)`
 const ProjectInfo = styled.div`
   /* border-radius: .75rem; */
   margin-top: 0.25rem;
-  background: var(--blur-background);
   z-index: 100;
   width: 100%;
   display: flex;

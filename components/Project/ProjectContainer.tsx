@@ -3,9 +3,10 @@ import { motion } from 'framer-motion'
 import { mq } from "../../utils"
 import { ProjectItem } from "./"
 import { type ProjectDoc } from "../../types"
+import classNames from "classnames"
 
 type Props = {
-  projects: ProjectDoc[]
+  projects: ProjectDoc[],
 }
 
 
@@ -23,10 +24,9 @@ const container = {
 
 function ProjectContainer({ projects }: Props)  {
   return (
-    <Container 
-      >
-      { projects.map(project => (
-        <ProjectItem key={project._id} project={project} />
+    <Container>
+      { projects.map((project, index) => (
+        <ProjectItem key={project._id} project={project} id={index} />
       ))}
     </Container>
   )
@@ -36,15 +36,15 @@ export default ProjectContainer
 
 
 const Container = styled(motion.div)`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin: 1rem 0;
   
-  @media ${mq.md} {
+  /* @media ${mq.md} {
     grid-template-columns: repeat(2, 1fr);
   }
   @media ${mq.lg} {
     grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 `

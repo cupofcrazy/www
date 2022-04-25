@@ -22,7 +22,7 @@ export const Marquee: React.FC<MarqueeProps> = ({
       data-speed={speed}
       data-pausable={pausable}
     >
-      <div>{children}</div>
+      <Container>{children}</Container>
     </MarqueeEl>
   );
 };
@@ -31,4 +31,7 @@ const MarqueeEl = styled.div`
   font-size: 6rem;
   overflow: hidden;
   color: var(--accent-color);
+`;
+const Container = styled.div`
+  margin-right: 1rem;
 `;
