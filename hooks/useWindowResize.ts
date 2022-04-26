@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 
 interface Props {
-  width: number | undefined;
-  height: number | undefined
+  width?: number;
+  height?: number
 }
 
 export const useWindowResize = () => {
