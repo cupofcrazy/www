@@ -99,7 +99,7 @@ const ProjectImage = styled.div`
   /* padding: 5%; */
 `;
 const Container = styled(motion.a)`
-  width: 33.3%;
+  width: 100%;
   /* background-color: var(--border-color); */
   /* padding: 1rem; */
   border-radius: 1rem;
