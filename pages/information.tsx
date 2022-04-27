@@ -5,7 +5,7 @@ import { client } from '../lib/sanity';
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import { PageHead } from '../components/Seo';
-import { mq } from '../utils';
+import { colors, mq } from '../utils';
 import { Styled } from '../styles';
 import { TagList } from '../styles/pages/project.styled'
 import { SiteLink } from '../components/SiteLink';
@@ -34,14 +34,14 @@ const Info: NextPage<Props> = ({ info }) => {
           </Styled.Section>
           <Styled.Section>
             <Styled.SectionHeading>Capabilities</Styled.SectionHeading>
-            <TagList>{ info.content.capabilities.map((capability: any) => (
-              <Badge key={capability}>{capability}</Badge>
+            <TagList>{ info.content.capabilities.map((capability: any, index: number) => (
+              <Badge key={capability} color={colors[index % colors.length].background}>{capability}</Badge>
             )) }</TagList>
           </Styled.Section>
           <Styled.Section>
             <Styled.SectionHeading>Technologies</Styled.SectionHeading>
-            <TagList>{ info.content.tools.map((tool: any) => (
-              <Badge key={tool}>{tool}</Badge>
+            <TagList>{ info.content.tools.map((tool: string, index: number) => (
+              <Badge key={tool} color={colors[index % colors.length].background}>{tool}</Badge>
             )) }</TagList>
           </Styled.Section>
           

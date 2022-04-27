@@ -21,6 +21,7 @@ import { Marquee } from "../../components/Marquee";
 import { projectQuery } from "../../lib/queries";
 import ProjectContainer from "../../components/Project/ProjectContainer";
 import { ProjectCard } from "../../components/Project/ProjectCard";
+import { colors } from "utils";
 
 type Props = {
   projects: {
@@ -66,9 +67,9 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
           />
         </CoverImage>
         <Styled.ProjectTitle>{project.content.title}</Styled.ProjectTitle>
-        <Styled.ProjectSubtitle>
+        <Badge>
           {project.content.subtitle}
-        </Styled.ProjectSubtitle>
+        </Badge>
 
         <AppStyles.Divider />
         <Styled.ProjectInfo>
@@ -80,8 +81,8 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
           <Styled.FlexSection>
             <Styled.FlexSectionTitle>Tags</Styled.FlexSectionTitle>
             <Styled.TagList>
-              {project.content.tags?.map((tag: any) => (
-                <Badge key={tag}>{tag}</Badge>
+              {project.content.tags?.map((tag: any, index) => (
+                <Badge key={tag} color={colors[index % colors.length].background}>{tag}</Badge>
               ))}
             </Styled.TagList>
           </Styled.FlexSection>

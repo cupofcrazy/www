@@ -60,7 +60,7 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: smooth; */
     font-size: 14px;
     letter-spacing: 0.25px;
-    font-family: 'Lars', 'Graphik', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    font-family: 'Graphik', 'Lars', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
     @media ${mq.md} {

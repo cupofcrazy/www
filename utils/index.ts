@@ -25,3 +25,30 @@ export const formatNumber = (num: number): string => {
 export const ease = {
   easeInOutExpo: 'cubic-bezier(0.87, 0, 0.13, 1)'
 }
+
+export const colors = [
+  {
+    name: 'pink',
+    background: '#FFF0FC' 
+  },
+  {
+    name: 'green',
+    background: '#D9FFE1' 
+  },
+  {
+    name: 'yellow',
+    background: '#FFEDC0' 
+  },
+  {
+    name: 'blue',
+    background: '#E8F9FF' 
+  },
+  {
+    name: 'gray',
+    background: '#FFE2D9' 
+  },
+  {
+    name: 'orange',
+    background: '#EFEFEF' 
+  },
+]
