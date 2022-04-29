@@ -29,19 +29,19 @@ export const ease = {
 export const colors = [
   {
     name: 'pink',
-    background: '#FFF0FC' 
+    background: '#FFD7F6' 
   },
   {
     name: 'green',
-    background: '#D9FFE1' 
+    background: '#C0FFB5' 
   },
   {
     name: 'yellow',
-    background: '#FFEDC0' 
+    background: '#FFE897' 
   },
   {
     name: 'blue',
-    background: '#E8F9FF' 
+    background: '#BFF0FF' 
   },
   {
     name: 'gray',

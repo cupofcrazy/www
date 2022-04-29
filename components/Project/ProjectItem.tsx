@@ -98,14 +98,16 @@ const ProjectImage = styled.div`
   border-radius: .75rem;
   /* padding: 5%; */
 `;
-const Container = styled(motion.a)`
-  width: 100%;
+const Container = styled(motion.div)`
+  /* grid-column: 1 / -1;
+  grid-row: 1 / span 2;
+  width: 100%; */
   /* background-color: var(--border-color); */
   /* padding: 1rem; */
   border-radius: 1rem;
 
   @media ${mq.md} {
-    width: 30%;
+    /* width: 30%; */
   }
   
   /* &:nth-of-type(odd) {
