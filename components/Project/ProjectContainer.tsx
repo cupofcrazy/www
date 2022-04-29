@@ -38,13 +38,13 @@ export default ProjectContainer
 const Container = styled(motion.div)`
   display: flex;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: masonry;
   gap: 1rem;
   margin: 1rem 0;
   
   @media ${mq.md} {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   @media ${mq.lg} {
     grid-template-columns: repeat(4, 1fr);
