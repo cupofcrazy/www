@@ -8,7 +8,7 @@ const Section = styled.section`
 const SectionHeading = styled.h2`
   color: var(--accent-color);
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-bottom: .5rem;
   font-family: 'Newsreader', serif;
   font-style: italic;
@@ -31,7 +31,7 @@ const SectionGrid = styled.div`
   }
 `
 const Divider = styled.div`
-  margin: 2rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
   border-bottom: 1px solid var(--border-color);
 `
 

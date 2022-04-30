@@ -42,12 +42,12 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
             <Image
               src={project.content.cover.url}
               alt={"Project Image"}
-              aspectRatio={project.content.cover.metadata.dimensions.aspectRatio}
+              aspectRatio={1}
             />
           </ProjectImage>
           <ProjectInfo>
             <p>{project.content.title}</p>
-            <p>{format(new Date(project.content.created_at), "MMM Y")}</p>
+            <Badge>{format(new Date(project.content.created_at), "MMM Y")}</Badge>
           </ProjectInfo>
 
         </a>

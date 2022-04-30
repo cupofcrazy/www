@@ -10,7 +10,7 @@ export const sizes = {
 
 // CSS Media Queries
 export const mq = {
-  mobileSm: `screen and (min-width: ${sizes.sm})`,
+  sm: `screen and (min-width: ${sizes.sm})`,
   md: `screen and (min-width: ${sizes.md})`,
   lg: `screen and (min-width: ${sizes.lg})`,
   xl: `screen and (min-width: ${sizes.xl})`,

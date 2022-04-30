@@ -29,7 +29,7 @@ const ProjectInfo = styled.div`
 `
 
 const Section = styled(motion.section)`
-  margin: 0rem 0 2rem 0;
+  margin: 0rem 0 1rem 0;
 `
 const SectionHeading = styled.h2`
   color: var(--accent-color);

@@ -1,22 +1,18 @@
-import Link, { LinkProps } from "next/link"
-import cn from 'classnames'
 import styled from "styled-components"
-import { useRouter } from 'next/router';
-import { mq } from "../utils";
 import { ArrowIcon } from './ArrowIcon';
 
 
-type Props = LinkProps & { children: React.ReactNode }
+type Props = {
+  children: React.ReactNode
+  href: string
+} & React.HTMLProps<HTMLAnchorElement>
 
 export const SiteLink = (props: Props) => {
-  const router = useRouter()
   return (
-    <Link {...props} passHref>
-      <StyledLink className={cn({ active: router.asPath === props.href})}>
-        <Text>{ props.children }</Text>
-        <ArrowIcon stroke="var(--secondary-color)" size={14} />
-      </StyledLink>
-    </Link>
+    <StyledLink target="_blank" rel="noopener noreferrer" href={props.href}>
+      <Text>{ props.children }</Text>
+      <ArrowIcon stroke="var(--secondary-color)" size={14} />
+    </StyledLink>
   )
 }
 

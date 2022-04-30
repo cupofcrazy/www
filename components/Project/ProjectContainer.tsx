@@ -40,13 +40,16 @@ const Container = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: masonry;
-  gap: 1rem;
+  gap: 2rem 1rem;
   margin: 1rem 0;
   
-  @media ${mq.md} {
+  @media ${mq.sm} {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media ${mq.lg} {
+  @media ${mq.xl} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media ${mq.xl2} {
     grid-template-columns: repeat(4, 1fr);
   }
 `

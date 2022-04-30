@@ -14,15 +14,18 @@ export const Badge = ({ children, color='var(--border-color)' }: Props) => {
   )
 }
 
+interface StyleProps {
+  color?: string
+}
 
-export const StyledBadge = styled.span`
+export const StyledBadge = styled.span<StyleProps>`
   display: inline-block;
   /* margin: .5rem 0; */
-  padding: .4rem .75rem;
-  color: #111;
-  background-color: ${({ color }: { color: string }) => color ? color :  'var(--border-color)' };
+  padding: .15rem .5rem;
+  color: ${({ color }) => color ? '#111' : 'var(--accent-color)' };
+  background-color: ${({ color }) => color ? color :  'var(--border-color)' };
   border: 1px solid var(--border-color);
-  border-radius: .75rem;
+  border-radius: .5rem;
   font-size: 1rem;
 
   @media ${mq.md} {

@@ -46,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --main-color: #FFF;
     --accent-color: #111;
-    --secondary-color: #111111;
+    --secondary-color: #505050;
     --background-color: #ececec;
     --border-color: #eee;
     --border-radius: .75rem;

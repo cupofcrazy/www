@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
+import { mq } from 'utils'
 import { ProjectDoc } from '../../types'
 import { Image } from '../Image'
 
@@ -27,7 +28,7 @@ export const ProjectCard = ({ project }: Props) => {
 }
 
 const Content = styled.a`
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -38,6 +39,10 @@ const Content = styled.a`
   border: 1px solid transparent;
   transition: all .5s ease;
   transform: scale(1) translateY(0px);
+
+  @media ${mq.md} {
+    width: 50%;
+  }
 
   &:hover, :focus {
     border: 1px solid var(--secondary-color);

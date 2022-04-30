@@ -21,7 +21,7 @@ import { Marquee } from "../../components/Marquee";
 import { projectQuery } from "../../lib/queries";
 import ProjectContainer from "../../components/Project/ProjectContainer";
 import { ProjectCard } from "../../components/Project/ProjectCard";
-import { colors } from "utils";
+import { colors, mq } from "utils";
 
 type Props = {
   projects: {
@@ -74,7 +74,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
         <AppStyles.Divider />
         <Styled.ProjectInfo>
           <Styled.Section initial="initial" animate="animate" variants={variants}>
-            <Styled.SectionHeading>Description</Styled.SectionHeading>
+            <Styled.FlexSectionTitle>Description</Styled.FlexSectionTitle>
             <Styled.SectionText>{project.content.description}</Styled.SectionText>
           </Styled.Section>
 
@@ -129,10 +129,10 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
           <Marquee speed={.8}>{project.content.subtitle}</Marquee>
         </div>
         {
-          previousProject && nextProject && <div style={{ display: 'flex', gap: '1rem', width: '100%' }}>
+          previousProject && nextProject && <OtherProjectsContainer>
             <ProjectCard project={previousProject} />
             <ProjectCard project={nextProject} />
-          </div>
+          </OtherProjectsContainer>
         }
       </Content>
     </>
@@ -140,6 +140,17 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
 };
 
 export default ProjectPage;
+
+const OtherProjectsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  @media ${mq.md} {
+    flex-direction: row;
+  }
+  
+`
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const projects = await client.fetch(projectQuery, {
