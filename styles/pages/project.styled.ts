@@ -4,7 +4,7 @@ import { StyledBadge } from "../../components/Badge/Badge";
 import { mq } from "../../utils";
 
 
-const ProjectTitle = styled.p`
+const ProjectTitle = styled(motion.p)`
   margin: 1rem 0;
   font-size: 2.5rem;
   color: var(--accent-color);
@@ -18,7 +18,7 @@ const ProjectSubtitle = styled(StyledBadge)`
   color: var(--secondary-color);
   font-size: 1rem;
 `
-const ProjectInfo = styled.div`
+const ProjectInfo = styled(motion.div)`
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -61,7 +61,7 @@ const ProjectImage = styled.div`
 `
 
 
-const FlexSection = styled.div`
+const FlexSection = styled(motion.div)`
   /* display: flex; */
   flex: 1 2;
   gap: 1rem;
@@ -81,7 +81,7 @@ const FlexSectionText = styled.p`
   font-size: 1rem;
   display: block;
 `
-export const TagList = styled.div`
+export const TagList = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   gap: .75rem;

@@ -13,7 +13,7 @@ import ProjectContainer from "../components/Project/ProjectContainer";
 import { Badge } from "../components/Badge/Badge";
 import { CoverImage } from "../components/Image/CoverImage";
 
-import { formatNumber, mq } from "../utils";
+import { colors, formatNumber, mq } from "../utils";
 import type { HomeDoc, ProjectDoc } from "../types";
 import { Marquee } from "components/Marquee";
 
@@ -47,7 +47,7 @@ const Home: NextPage<Props> = ({ home, projects }) => {
       <BioSection>
         <BioSectionText>{home.content.bio}</BioSectionText>
 
-        <Badge>Currently Freelancing</Badge>
+        <Badge color={colors[1].background}>Currently Freelancing</Badge>
       </BioSection>
       <Section>
         <SectionTitle>

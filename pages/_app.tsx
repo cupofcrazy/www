@@ -42,7 +42,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <Header />
         <Container>
           <GlobalStyles />
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence
+            onExitComplete={() => {
+              if (typeof window !== 'undefined') {
+                window.scrollTo({ top: 0 })
+              }
+            }}
+            exitBeforeEnter>
             <motion.div
               transition={{ ease: "easeOut" }}
               key={router.asPath}

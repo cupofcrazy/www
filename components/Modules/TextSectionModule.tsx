@@ -9,7 +9,7 @@ type TextModuleProps = {
 
 export const TextSectionModule = ({ title, body }: TextModuleProps) => {
   return (
-    <Styled.Section>
+    <Styled.Section style={{ margin: '2.625rem 0'}}>
       <Styled.SectionHeading>{title}</Styled.SectionHeading>
       <Styled.SectionText>{body}</Styled.SectionText>
     </Styled.Section>

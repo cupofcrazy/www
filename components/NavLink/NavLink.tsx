@@ -27,9 +27,12 @@ export const NavLink: React.FC<Props> = ({ href, children }) => {
 const StyledLink = styled.a`
   color: var(--secondary-color);
   transition: all .3s ${ease.easeInOutExpo};
+ 
+  padding: .25rem .5rem;
+  border-radius: .5rem;
 
   &.active {
-    
+    background-color: var(--border-color);
     color: var(--accent-color);
     transition: all .3s ${ease.easeInOutExpo};
 

@@ -10,7 +10,7 @@ import { Styled } from '../styles';
 import { TagList } from '../styles/pages/project.styled'
 import { SiteLink } from '../components/SiteLink';
 import { CoverImage } from '../components/Image/CoverImage';
-import { Badge } from '../components/Badge/Badge';
+import { Badge } from '../components/Badge';
 
 
 

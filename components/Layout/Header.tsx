@@ -59,12 +59,12 @@ const Container = styled.header`
   width: 100%;
   background: var(--blur-background);
   z-index: 100;
-  backdrop-filter: blur(16px) saturate(500%);
+  backdrop-filter: blur(32px) saturate(500%);
 
   ul {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     
     li {
       margin-top: .15rem;

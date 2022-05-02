@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { ArrowIcon } from "components/ArrowIcon";
 import format from "date-fns/format";
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
@@ -44,6 +45,11 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
               alt={"Project Image"}
               aspectRatio={1}
             />
+            <ProjectOverlay>
+              <div>
+                <ArrowIcon stroke="var(--accent-color)" />
+              </div>
+            </ProjectOverlay>
           </ProjectImage>
           <ProjectInfo>
             <p>{project.content.title}</p>
@@ -51,20 +57,45 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
           </ProjectInfo>
 
         </a>
-        {/* <input type="number" onChange={(e) => setInput(+e.target.value)} /> */}
         </StyledLink>
       </Container>
   );
 };
 
-const StyledLink = styled(Link)`
-  /* display: block;
-  transform: rotate(45deg); */
+const ProjectOverlay = styled.div`
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items:  center;
+  justify-content: center;
+  
+  div {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+`
+const StyledLink = styled(Link)`
+  &:hover {
+    ${ProjectOverlay} {
+      opacity: 1;
+    }
+  }
   @media ${mq.md} {
     grid-column: 1 / 6;
   }
 `;
+
 
 const ProjectDetails = styled.div`
   background-color: var(--background-color);
@@ -79,8 +110,6 @@ const ProjectDetails = styled.div`
   justify-content: space-between;
 
   p {
-    /* font-size: 1rem; */
-    /* width: 60%; */
     font-weight: 400;
 
     @media ${mq.md} {
@@ -92,52 +121,25 @@ const ProjectDetails = styled.div`
 const ProjectImage = styled.div`
   overflow: hidden;
   margin-bottom: 1rem;
-  /* border: 1px solid red; */
   transition: all 0.3s ease;
   position: relative;
   border-radius: .75rem;
-  /* padding: 5%; */
 `;
 const Container = styled(motion.div)`
-  /* grid-column: 1 / -1;
-  grid-row: 1 / span 2;
-  width: 100%; */
-  /* background-color: var(--border-color); */
-  /* padding: 1rem; */
   border-radius: 1rem;
 
   @media ${mq.md} {
-    /* width: 30%; */
   }
-  
-  /* &:nth-of-type(odd) {
-    grid-row: auto / span 2;
-    grid-column: auto / span 2;
-  } */
 
   &.large {
-    /* grid-row: auto / span 2;
-    grid-column: auto / span 2; */
   }
-
-  
-  /* padding: 1rem; */
-  /* margin-bottom: 1rem; */
   display: block;
-  /* border-radius: 1rem; */
-  /* transition: all .3s ease; */
-  /* width: 100%;
-  height: 100%; */
 
   &:hover,
   :focus {
     transform: scale(1);
-    /* background-color: ${({ color }) => `${color}34`}; */
-    /* transition: all .3s ease; */
-    /* background: #111111ac; */
     ${ProjectImage} {
-      /* border: 1px solid var(--secondary-color); */
-      /* transition: all .3s ease; */
+      
     }
     ${ProjectDetails} {
       opacity: 1;
@@ -148,7 +150,6 @@ const Container = styled(motion.div)`
 `;
 
 const ProjectInfo = styled.div`
-  /* border-radius: .75rem; */
   margin-top: 0.25rem;
   z-index: 100;
   width: 100%;
@@ -157,7 +158,6 @@ const ProjectInfo = styled.div`
   justify-content: space-between;
   font-size: 0.85rem;
   color: var(--accent-color);
-  /* margin: .5rem; */
 
   @media ${mq.md} {
     font-size: 1rem;
@@ -166,3 +166,5 @@ const ProjectInfo = styled.div`
   p {
   }
 `;
+
+

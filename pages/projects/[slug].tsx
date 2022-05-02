@@ -93,15 +93,14 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
               See Online (URL)
             </Styled.FlexSectionTitle>
             <Styled.FlexSectionText>
-              <SiteLink href={project.content.url}>
-                {project.content.url}
-              </SiteLink>
+              { project.content.url ? <SiteLink href={project.content.url}>
+                Live Website
+              </SiteLink> : <p>Not Live Yet</p> }
             </Styled.FlexSectionText>
           </Styled.FlexSection>
         </Styled.ProjectInfo>
 
         <AppStyles.Divider />
-
         <div className="modules" style={{ marginTop: "2rem" }}>
           {project.content.modules.map((module: any) => {
             switch (module._type) {
@@ -126,12 +125,12 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
                 );
             }
           })}
-          <Marquee speed={.8}>{project.content.subtitle}</Marquee>
+          <Marquee speed={.8} textColor={project.content.color.hex}>{project.content.subtitle}</Marquee>
         </div>
         {
           previousProject && nextProject && <OtherProjectsContainer>
-            <ProjectCard project={previousProject} />
-            <ProjectCard project={nextProject} />
+            <ProjectCard title="Previous Project" project={previousProject} />
+            <ProjectCard title="Next Project" project={nextProject} />
           </OtherProjectsContainer>
         }
       </Content>

@@ -27,6 +27,7 @@ export const projectQuery = groq`*[_type == 'project' && content.slug.current ==
       description,
       tags,
       url,
+      color,
       created_at,
       "cover": cover.image.asset->,
       "modules": modules[] {
