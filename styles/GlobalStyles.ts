@@ -49,7 +49,7 @@ export const GlobalStyles = createGlobalStyle`
     --accent-color: #111;
     --secondary-color: #505050;
     --background-color: #ececec;
-    --border-color: #eee;
+    --border-color: rgba(1, 1, 1, .075);
     --border-radius: .75rem;
     --blur-background: #ffffffd1;
     /* --vh */
@@ -101,7 +101,7 @@ export const GlobalStyles = createGlobalStyle`
       --accent-color: #FFF;
       --secondary-color: #BBB;
       --background-color: #2f2f2f;
-      --border-color: #393939;
+      --border-color: rgba(255, 255, 255, .15);
       --border-radius: .75rem;
       --blur-background: #1e1e1ed1;
     }
