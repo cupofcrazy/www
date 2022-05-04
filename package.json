@@ -5,10 +5,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint"
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.28.0",
     "framer-motion": "^6.2.9",
     "marquee3000": "^1.1.1",
@@ -21,6 +23,7 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^12.1.6",
     "@types/node": "17.0.14",
     "@types/nprogress": "^0.2.0",
     "@types/react": "17.0.38",

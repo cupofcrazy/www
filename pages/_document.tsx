@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <meta name="application-name" content="Tobi Balogun" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -99,8 +99,9 @@ export default class MyDocument extends Document {
             property="og:image"
             content="https://deploy-ebon.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fax8jt3wl%2Fproduction%2F7a7be496f5bd640404164216de2b58f439f9d249-500x500.png&w=2048&q=75"
           />
+          <link rel="preload" as="font" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=optional"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap"
             rel="stylesheet"
           />
           <link

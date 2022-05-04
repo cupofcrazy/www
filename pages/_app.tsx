@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <meta
         name="viewport"
-        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
       />
       <ThemeProvider>
         <Header />
@@ -71,7 +71,7 @@ export default MyApp;
 
 const Container = styled.div`
   padding: 1rem;
-  margin: 4.25rem auto 4.25rem auto;
+  margin: 8rem auto 8rem auto;
 
   @media ${mq.md} {
     margin: 10rem auto 10rem auto;

@@ -10,7 +10,7 @@ import { Styled } from '../styles';
 import { TagList } from '../styles/pages/project.styled'
 import { SiteLink } from '../components/SiteLink';
 import { CoverImage } from '../components/Image/CoverImage';
-import { Badge } from '../components/Badge';
+import { Badge, BadgeList } from '../components/Badge';
 
 
 
@@ -23,48 +23,44 @@ const Info: NextPage<Props> = ({ info }) => {
   return (
     <Content>
       <PageHead title="Information" description='About Me' />
-        {/* <p>Information</p> */}
-        <CoverImage>
-          <Image src={info.content.seo.image.url} color={info.content.seo.image.metadata.palette.vibrant.background} alt="Logo" aspectRatio={1} />
-        </CoverImage>
-        <Styled.SectionGrid>
-          <Styled.Section>
-            <Styled.SectionHeading>About</Styled.SectionHeading>
-            <Styled.SectionText>{ info.content.short_bio }</Styled.SectionText>
-          </Styled.Section>
-          <Styled.Section>
-            <Styled.SectionHeading>Capabilities</Styled.SectionHeading>
-            <TagList>{ info.content.capabilities.map((capability: any, index: number) => (
-              <Badge key={capability} color={colors[index % colors.length].background}>{capability}</Badge>
-            )) }</TagList>
-          </Styled.Section>
-          <Styled.Section>
-            <Styled.SectionHeading>Technologies</Styled.SectionHeading>
-            <TagList>{ info.content.tools.map((tool: string, index: number) => (
-              <Badge key={tool} color={colors[index % colors.length].background}>{tool}</Badge>
-            )) }</TagList>
-          </Styled.Section>
-          
-        </Styled.SectionGrid>
-        <Divider />
-        <Styled.SectionGrid>
-          <Styled.Section>
-            <Styled.SectionHeading>Contact</Styled.SectionHeading>
-            <Styled.SectionList>
-              {info.content.contacts.map((contact: any) => (
-                <SiteLink key={contact.name} href={contact.href}>{contact.name}</SiteLink>
-              ))}
-            </Styled.SectionList>
-          </Styled.Section>
-          <Styled.Section>
-            <Styled.SectionHeading>Experiments</Styled.SectionHeading>
-            <Styled.SectionList>
-              {info.content.experiments.map((experiment: any) => (
-                <SiteLink key={experiment.name} href={experiment.href}>{experiment.name}</SiteLink>
-              ))}
-            </Styled.SectionList>
-          </Styled.Section>
-        </Styled.SectionGrid>
+      {/* <p>Information</p> */}
+      <CoverImage>
+        <Image src={info.content.seo.image.url} color={info.content.seo.image.metadata.palette.vibrant.background} alt="Logo" aspectRatio={1} />
+      </CoverImage>
+      <Styled.SectionGrid>
+        <Styled.Section>
+          <Styled.SectionHeading>About</Styled.SectionHeading>
+          <Styled.SectionText>{info.content.short_bio}</Styled.SectionText>
+        </Styled.Section>
+        <Styled.Section>
+          <Styled.SectionHeading>Capabilities</Styled.SectionHeading>
+          <BadgeList badgeList={info.content.capabilities} />
+        </Styled.Section>
+        <Styled.Section>
+          <Styled.SectionHeading>Technologies</Styled.SectionHeading>
+          <BadgeList badgeList={info.content.tools} />
+        </Styled.Section>
+
+      </Styled.SectionGrid>
+      <Divider />
+      <Styled.SectionGrid>
+        <Styled.Section>
+          <Styled.SectionHeading>Contact</Styled.SectionHeading>
+          <Styled.SectionList>
+            {info.content.contacts.map((contact: any) => (
+              <SiteLink key={contact.name} href={contact.href}>{contact.name}</SiteLink>
+            ))}
+          </Styled.SectionList>
+        </Styled.Section>
+        <Styled.Section>
+          <Styled.SectionHeading>Experiments</Styled.SectionHeading>
+          <Styled.SectionList>
+            {info.content.experiments.map((experiment: any) => (
+              <SiteLink key={experiment.name} href={experiment.href}>{experiment.name}</SiteLink>
+            ))}
+          </Styled.SectionList>
+        </Styled.Section>
+      </Styled.SectionGrid>
     </Content>
   )
 };

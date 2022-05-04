@@ -4,12 +4,13 @@ import { mq } from "../utils";
 export const GlobalStyles = createGlobalStyle`
 
   /* Fonts */
-  @font-face {
+  /* @font-face {
     font-family: "Graphik";
     font-weight: 300;
     src: url('/fonts/Graphik-Regular.woff') format('woff'),
     url('/fonts/Graphik-Regular.woff2') format('woff2');
-  }
+    font-display: swap;
+  } */
   
   /* Box sizing rules */
   *,
