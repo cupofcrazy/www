@@ -19,7 +19,6 @@ type Props = {
   info: any
 }
 const Info: NextPage<Props> = ({ info }) => {
-  console.log(info)
   return (
     <Content>
       <PageHead title="Information" description='About Me' />

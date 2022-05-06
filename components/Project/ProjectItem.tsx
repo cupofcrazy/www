@@ -28,7 +28,6 @@ const variants: Variants = {
 };
 
 export const ProjectItem: React.FC<Props> = ({ project, id }) => {
-  console.log({ project });
   return (
     <Container
       initial={{ opacity: 0, y: 30 }}
@@ -156,12 +155,8 @@ const ProjectInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--accent-color);
-
-  @media ${mq.md} {
-    font-size: 1rem;
-  }
 
   p {
   }

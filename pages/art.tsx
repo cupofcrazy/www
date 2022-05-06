@@ -8,7 +8,6 @@ import { client } from "../lib/sanity";
 import { Styled } from "../styles";
 
 const Art = ({ art }: { art: any }) => {
-  console.log({ art });
   return (
     <>
       <PageHead

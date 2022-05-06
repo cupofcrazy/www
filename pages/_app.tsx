@@ -31,7 +31,6 @@ const pageTransitionVariants = {
 };
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  console.log(router);
   return (
     <>
       <meta

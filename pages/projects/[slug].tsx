@@ -47,7 +47,6 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
   const onScreen = useOnScreen<HTMLDivElement>(ref)
   
   const { project, previousProject, nextProject } = projects
-  console.log(project.content.title)
 
   
   return (

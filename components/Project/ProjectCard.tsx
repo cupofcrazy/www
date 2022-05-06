@@ -38,7 +38,7 @@ const Content = styled.a`
   padding: .5rem;
   flex-basis: 0 0 auto;
   border-radius: 1rem;
-  border: 1px solid var(--border-color);
+  /* border: 1px solid var(--border-color); */
   transition: all .5s ease;
   transform: scale(1);
 
@@ -47,10 +47,10 @@ const Content = styled.a`
   }
 
   &:hover, :focus {
-    border: 1px solid var(--secondary-color);
     transform: scale(1.01);
     transition: all .3s ease;
     box-shadow: 0px 2px 4 px rgba(0, 0, 0, .15);
+    background-color: var(--border-color);
   }
 `
 
