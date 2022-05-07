@@ -12,10 +12,10 @@ interface Props {
 }
 
 
-export const ProjectCard = ({ title, project }: Props) => {
+export const ProjectCard: React.FC<Props> = ({ title, project, ...props }) => {
   return (
     <Link href={`/projects/${project.content.slug.current}`} passHref>
-      <Content>
+      <Content {...props}>
         <ProjectImage>
           <Image src={project.content.cover.url} alt="Project Image" aspectRatio={1} />
         </ProjectImage>

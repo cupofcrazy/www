@@ -10,6 +10,7 @@ type Props = {
   alt?: string;
   aspectRatio?: number;
   color?: string;
+  className?: string
 }
 
 const variants = {
@@ -25,10 +26,10 @@ const variants = {
   }
 }
 
-export const Image: React.FC<Props> = ({ src, alt, aspectRatio=1, color="var(--border-color)" }) => {
+export const Image: React.FC<Props> = ({ src, alt, aspectRatio=1, color="var(--border-color)", className="", ...props }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
   return (
-    <Container aspectRatio={aspectRatio} color={color}>
+    <Container aspectRatio={aspectRatio} color={color} className={className} {...props}>
       <AnimatePresence exitBeforeEnter>
         { !imageLoaded && 
         <Backdrop

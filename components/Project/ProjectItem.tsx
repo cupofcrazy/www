@@ -29,35 +29,28 @@ const variants: Variants = {
 
 export const ProjectItem: React.FC<Props> = ({ project, id }) => {
   return (
-    <Container
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className={cn({ large: id % 3 == 0 && id % 6 == 0 })}
-      data-grid={id}
-      >
-      <StyledLink href={`/projects/${project.content.slug.current}`} passHref>
-        <a>
-          <ProjectImage>
-            <Image
-              src={project.content.cover.url}
-              alt={"Project Image"}
-              aspectRatio={1}
-            />
-            <ProjectOverlay>
-              <div>
-                <ArrowIcon stroke="var(--accent-color)" />
-              </div>
-            </ProjectOverlay>
-          </ProjectImage>
-          <ProjectInfo>
-            <p>{project.content.title}</p>
-            <Badge>{format(new Date(project.content.created_at), "MMM Y")}</Badge>
-          </ProjectInfo>
+    <Link href={`/projects/${project.content.slug.current}`} passHref>
+      <StyledLink>
+        <ProjectImage>
+          <ProjectOverlay>
+            <div className="arrow">
+              <ArrowIcon stroke="var(--accent-color)" />
+            </div>
+          </ProjectOverlay>
+          <Image
+            src={project.content.cover.url}
+            alt={"Project Image"}
+            aspectRatio={1}
+            className="image"
+          />
+        </ProjectImage>
+        <ProjectInfo>
+          <p>{project.content.title}</p>
+          <Badge>{format(new Date(project.content.created_at), "MMM Y")}</Badge>
+        </ProjectInfo>
 
-        </a>
-        </StyledLink>
-      </Container>
+      </StyledLink>
+    </Link>
   );
 };
 
@@ -66,16 +59,18 @@ const ProjectOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .25);
   width: 100%;
   height: 100%;
   display: flex;
   align-items:  center;
   justify-content: center;
+  z-index: 2;
+  transition: all .3s ease;
   
   div {
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     background-color: var(--main-color);
     display: flex;
@@ -84,14 +79,36 @@ const ProjectOverlay = styled.div`
   }
 
 `
-const StyledLink = styled(Link)`
-  &:hover {
+const StyledLink = styled.a`
+  position: relative;
+  overflow: hidden;
+  /* transform: scale(1); */
+
+  .arrow {
+    transform: scale(0);
+    transition: all .3s ease;
+  }
+
+  .image {
+    transition: all 1s ease;
+  }
+  
+  
+  &:hover, :focus  {
     ${ProjectOverlay} {
       opacity: 1;
     }
+    .arrow {
+      transform: scale(1);
+      transition: all .5s ease;
+    }
+    
+    .image {
+      transform: scale(1.25);
+      transition: all 1s ease;
+    }
   }
   @media ${mq.md} {
-    grid-column: 1 / 6;
   }
 `;
 
@@ -159,6 +176,7 @@ const ProjectInfo = styled.div`
   color: var(--accent-color);
 
   p {
+    color: var(--accent-color);
   }
 `;
 

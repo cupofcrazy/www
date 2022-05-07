@@ -127,9 +127,9 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
           <Marquee speed={.8} textColor={project.content.color.hex}>{project.content.subtitle}</Marquee>
         </div>
         {
-          previousProject && nextProject && <OtherProjectsContainer>
-            <ProjectCard title="Previous Project" project={previousProject} />
-            <ProjectCard title="Next Project" project={nextProject} />
+          <OtherProjectsContainer style={{ justifyContent: !nextProject ? 'flex-start' : 'flex-end'}}>
+            { previousProject && <ProjectCard title="Previous Project" project={previousProject}  /> }
+            { nextProject && <ProjectCard title="Next Project" project={nextProject} /> }
           </OtherProjectsContainer>
         }
       </Content>
