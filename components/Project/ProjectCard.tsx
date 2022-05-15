@@ -17,7 +17,7 @@ export const ProjectCard: React.FC<Props> = ({ title, project, ...props }) => {
     <Link href={`/projects/${project.content.slug.current}`} passHref>
       <Content {...props}>
         <ProjectImage>
-          <Image src={project.content.cover.url} alt="Project Image" aspectRatio={1} />
+          <Image src={project.content.cover.url} alt="Project Image" aspectRatio={1} className="image" />
         </ProjectImage>
         <ProjectInfo>
           <span>{title}</span>
@@ -42,6 +42,11 @@ const Content = styled.a`
   transition: all .5s ease;
   transform: scale(1);
 
+  .image {
+    transition: all 1s ease;
+
+  }
+
   @media ${mq.md} {
     width: 50%;
   }
@@ -51,6 +56,12 @@ const Content = styled.a`
     transition: all .3s ease;
     box-shadow: 0px 2px 4 px rgba(0, 0, 0, .15);
     background-color: var(--border-color);
+    
+    .image {
+      transform: scale(1.25);
+      transition: all .5s ease;
+
+    }
   }
 `
 

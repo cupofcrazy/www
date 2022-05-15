@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import Marquee3k from "marquee3000";
+import { mq } from "utils";
 
 
 interface MarqueeProps {
@@ -34,6 +35,10 @@ const MarqueeEl = styled.div<Pick<MarqueeProps, 'textColor'>>`
   font-size: 6rem;
   overflow: hidden;
   color: ${({ textColor }) => textColor};
+
+  @media ${mq.xl2} {
+    font-size: 10rem;
+  }
 `;
 const Container = styled.div`
   margin-right: 1rem;

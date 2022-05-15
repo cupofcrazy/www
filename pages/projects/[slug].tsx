@@ -124,7 +124,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
                 );
             }
           })}
-          <Marquee speed={.8} textColor={project.content.color.hex}>{project.content.subtitle}</Marquee>
+          <Marquee speed={.8}>{project.content.subtitle}</Marquee>
         </div>
         {
           <OtherProjectsContainer style={{ justifyContent: !nextProject ? 'flex-start' : 'flex-end'}}>

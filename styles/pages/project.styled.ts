@@ -34,8 +34,9 @@ const Section = styled(motion.section)`
 const SectionHeading = styled.h2`
   color: var(--accent-color);
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-bottom: .5rem;
+  /* text-decoration: underline; */
   /* font-family: 'Newsreader', serif;
   font-style: italic; */
 `
