@@ -101,6 +101,10 @@ export default class MyDocument extends Document {
           />
           {/* <link rel="preload" as="font" /> */}
           <link
+            href="https://fonts.googleapis.com/css2?family=Metrophobic&display=optional"
+            rel="stylesheet"
+          />
+          <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=optional"
             rel="stylesheet"
           />

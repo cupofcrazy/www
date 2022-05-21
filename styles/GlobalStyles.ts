@@ -61,14 +61,14 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: smooth; */
     font-size: 14px;
     letter-spacing: 0.25px;
-    font-family: 'Inter', 'Graphik', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    font-family: 'Metrophobic', 'Graphik', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
     @media ${mq.md} {
       font-size: 14px;
     }
     @media ${mq.xl} {
-      font-size: 14px;
+      font-size: 12px;
     }
     
     @media ${mq.xl2} {

@@ -39,6 +39,7 @@ export type Seo = {
 export type HomeDoc = {
   content: {
     bio: string
+    status: string
     image: {
       url: string
     }

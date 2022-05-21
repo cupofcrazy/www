@@ -47,7 +47,7 @@ const Home: NextPage<Props> = ({ home, projects }) => {
       <BioSection>
         <BioSectionText>{home.content.bio}</BioSectionText>
 
-        <Badge color={colors[1].background}>Currently Freelancing</Badge>
+        <Badge color={colors[1].background}>{home.content.status}</Badge>
       </BioSection>
       <Section>
         <SectionTitle>

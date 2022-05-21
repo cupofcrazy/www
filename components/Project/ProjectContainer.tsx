@@ -38,7 +38,7 @@ export default ProjectContainer
 const Container = styled(motion.div)`
   display: flex;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: masonry;
   gap: 2rem 1rem;
   margin: 1rem 0;
