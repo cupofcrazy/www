@@ -8,10 +8,10 @@ const Section = styled.section`
 const SectionHeading = styled.h2`
   color: var(--accent-color);
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.15rem;
   margin-bottom: .5rem;
-  font-family: 'Newsreader', serif;
-  font-style: italic;
+  /* font-family: 'Newsreader', serif; */
+  /* font-style: italic; */
 `
 const SectionText = styled.p`
   color: var(--secondary-color);

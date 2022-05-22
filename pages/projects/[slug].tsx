@@ -9,7 +9,7 @@ import { useOnScreen } from "../../hooks";
 import { PageHead } from "../../components/Seo";
 import { Image } from "../../components/Image";
 import { SiteLink } from "../../components/SiteLink";
-import { ModuleImage, DoubleImageModule } from "../../components/Modules";
+import { ModuleImage, DoubleImageModule, ImageWithCaption } from "../../components/Modules";
 import { TextSectionModule } from "../../components/Modules";
 import { CoverImage } from "../../components/Image/CoverImage";
 import { Badge } from "../../components/Badge/Badge";
@@ -106,7 +106,8 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
               case "alignedImage":
                 return (
                   <ModuleImage>
-                    <Image
+                    <ImageWithCaption
+                      caption={module.caption}
                       src={module.image.url}
                       aspectRatio={module.image.metadata.dimensions.aspectRatio}
                       color={module.image.metadata.palette.vibrant.background}

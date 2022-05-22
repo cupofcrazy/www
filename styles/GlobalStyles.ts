@@ -87,7 +87,7 @@ export const GlobalStyles = createGlobalStyle`
       background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,.2);
+      background: var(--accent-color);
   }
 
   /* Set core body defaults */

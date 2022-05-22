@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 
 
-type Props = {
+export type Props = {
   src: string;
   alt?: string;
   aspectRatio?: number;

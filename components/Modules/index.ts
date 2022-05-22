@@ -14,3 +14,4 @@ export const FlexImage = styled.div`
 
 export * from './TextSectionModule'
 export * from './DoubleImageModule'
+export * from './ImageWithCaption'
