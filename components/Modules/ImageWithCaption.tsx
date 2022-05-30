@@ -11,7 +11,7 @@ export const ImageWithCaption = ({ caption, alt,  ...props }: Props) => {
   return (
     <figure>
       <Container>
-        <Image {...props} alt={caption} />
+        <Image {...props} alt={caption || 'Project Screenshot' } />
       </Container>
       { caption && <Figcaption><p>{caption}</p></Figcaption> }
     </figure>
@@ -20,9 +20,11 @@ export const ImageWithCaption = ({ caption, alt,  ...props }: Props) => {
 
 
 const Figcaption = styled.figcaption`
+  font-size: .85rem;
   padding: .5rem;
   text-align: center;
   color: var(--secondary-color);
+  font-style: italic;
 `
 
 const Container = styled.div`

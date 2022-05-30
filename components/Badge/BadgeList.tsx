@@ -10,7 +10,7 @@ export const BadgeList = ({ badgeList }: Props) => {
   return (
     <BadgeContainer>
       {badgeList.map((badge, index) => (
-        <Badge key={index} color={colors[index % colors.length].background}>{badge}</Badge>
+        <Badge key={index} textColor={'var(--black)'} bgColor={colors[index % colors.length].background}>{badge}</Badge>
       ))}
     </BadgeContainer>
   );

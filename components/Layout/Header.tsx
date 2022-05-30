@@ -10,14 +10,15 @@ const navItems = [
   { href: '/information', name: 'Info' },
 ]
 
-export const Header = () => {
-  const toggleTheme = () => {
-    if (document.body.classList.contains('dark')) {
-      document.body.classList.remove('dark')
-      return
-    }
-    document.body.classList.add('dark')
+const toggleTheme = () => {
+  if (document.body.classList.contains('dark')) {
+    document.body.classList.remove('dark')
+    return
   }
+  document.body.classList.add('dark')
+}
+
+export const Header = () => {
   return (
     <Container>
       <Content>

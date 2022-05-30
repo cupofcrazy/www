@@ -45,6 +45,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   :root {
+    --white: #FFF;
+    --black: #111;
     --main-color: #FFF;
     --accent-color: #111;
     --secondary-color: #505050;
@@ -68,7 +70,7 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 14px;
     }
     @media ${mq.xl} {
-      font-size: 12px;
+      font-size: 14px;
     }
     
     @media ${mq.xl2} {

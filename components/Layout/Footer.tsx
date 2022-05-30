@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <Container>
       <Content>
-        <p>Tobi Balogun</p>
+        <p>Building Interfaces.</p>
         <p>{year}</p>
       </Content>
     </Container>

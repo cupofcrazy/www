@@ -15,12 +15,16 @@ import { CoverImage } from "../components/Image/CoverImage";
 
 import { colors, formatNumber, mq } from "../utils";
 import type { HomeDoc, ProjectDoc } from "../types";
-import { Marquee } from "components/Marquee";
+import { Marquee } from "../components/Marquee";
+
 
 type Props = {
   home: HomeDoc;
   projects: ProjectDoc[];
 };
+
+// Home badge color
+const badgeColor = colors.find(color => color.name === 'blue')
 
 const Home: NextPage<Props> = ({ home, projects }) => {
   const { width, height } = useWindowResize();
@@ -47,7 +51,7 @@ const Home: NextPage<Props> = ({ home, projects }) => {
       <BioSection>
         <BioSectionText>{home.content.bio}</BioSectionText>
 
-        <Badge color={colors[1].background}>{home.content.status}</Badge>
+        <Badge textColor="var(--black)" bgColor={badgeColor!.background}>{home.content.status}</Badge>
       </BioSection>
       <Section>
         <SectionTitle>

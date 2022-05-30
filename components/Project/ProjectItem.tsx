@@ -34,7 +34,7 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
         <ProjectImage>
           <ProjectOverlay>
             <div className="arrow">
-              <ArrowIcon stroke="var(--accent-color)" />
+              <ArrowIcon stroke="var(--black)" size={16} />
             </div>
           </ProjectOverlay>
           <Image
@@ -69,10 +69,10 @@ const ProjectOverlay = styled.div`
   transition: all .3s ease;
   
   div {
-    width: 4rem;
-    height: 4rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
-    background-color: var(--main-color);
+    background-color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;

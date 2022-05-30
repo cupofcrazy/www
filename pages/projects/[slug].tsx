@@ -1,8 +1,6 @@
 import type { GetServerSideProps, NextPage } from "next";
 import styled from "styled-components";
 import { useRef } from "react";
-
-import cn from "classnames";
 import { client } from "../../lib/sanity";
 import { useOnScreen } from "../../hooks";
 
@@ -22,6 +20,7 @@ import { projectQuery } from "../../lib/queries";
 import ProjectContainer from "../../components/Project/ProjectContainer";
 import { ProjectCard } from "../../components/Project/ProjectCard";
 import { colors, mq } from "utils";
+import { BadgeList } from "components/Badge/BadgeList";
 
 type Props = {
   projects: {
@@ -79,11 +78,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
 
           <Styled.FlexSection>
             <Styled.FlexSectionTitle>Tags</Styled.FlexSectionTitle>
-            <Styled.TagList>
-              {project.content.tags?.map((tag: any, index) => (
-                <Badge key={tag} color={colors[index % colors.length].background}>{tag}</Badge>
-              ))}
-            </Styled.TagList>
+            <BadgeList badgeList={project.content.tags} />
           </Styled.FlexSection>
 
 
@@ -155,6 +150,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const projects = await client.fetch(projectQuery, {
     slug: context.params?.slug
   })
+  if (!projects) {
+    return {
+      notFound: true
+    }
+  }
   return {
     props: {
       projects,

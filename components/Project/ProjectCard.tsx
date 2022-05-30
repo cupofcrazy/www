@@ -51,8 +51,7 @@ const Content = styled.a`
     width: 50%;
   }
 
-  &:hover, :focus {
-    transform: scale(1.01);
+  &:hover {
     transition: all .3s ease;
     box-shadow: 0px 2px 4 px rgba(0, 0, 0, .15);
     background-color: var(--border-color);
