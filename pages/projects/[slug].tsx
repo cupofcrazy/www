@@ -7,8 +7,6 @@ import { useOnScreen } from "../../hooks";
 import { PageHead } from "../../components/Seo";
 import { Image } from "../../components/Image";
 import { SiteLink } from "../../components/SiteLink";
-import { ModuleImage, DoubleImageModule, ImageWithCaption } from "../../components/Modules";
-import { TextSectionModule } from "../../components/Modules";
 import { CoverImage } from "../../components/Image/CoverImage";
 import { Badge } from "../../components/Badge/Badge";
 

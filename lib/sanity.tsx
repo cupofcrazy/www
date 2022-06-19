@@ -43,14 +43,31 @@ const components = {
       return (
         <ImageWithCaption caption={value.alt} src={value.image.url} alt={value.alt} aspectRatio={aspectRatio} color={background} />
       )
-    } 
+    },
+    video: ({ value }: { value: any }) => {
+      const { caption, fallback, _type } = value
+      return (
+        <video
+          style={{
+            width:  '100%',
+            border: '1px solid var(--border-color)',
+            borderRadius: '.75rem',
+            overflow: 'hidden',
+          }}
+          title={caption}
+          loop muted autoPlay playsInline controls>
+          <source src={fallback.url} type={`video/${fallback.extension}`} />
+          <source src={fallback.url} type={`video/${fallback.extension}`} />
+      </video>
+      )
+    }
   }
 }
 
 export const urlFor = (src: string) => createImageUrlBuilder(config).image(src)
 export const imageBuilder = (src: string) => createImageUrlBuilder(config).image(src)
 export const PortableText = (props: any) => {
-  console.log(props)
+  console.log({ props })
   return (
    <PortableTextComponent components={components} {...props} />
   )

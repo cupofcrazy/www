@@ -40,7 +40,7 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
           <Image
             src={project.cover.url}
             alt={"Project Image"}
-            aspectRatio={0.8}
+            aspectRatio={1.25}
             className="image"
           />
         </ProjectImage>

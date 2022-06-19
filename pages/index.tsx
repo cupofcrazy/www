@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { groq } from "next-sanity";
 
 import { client } from "../lib/sanity";
-import { projectsQuery } from "../lib/queries";
+import { homeQuery, projectsQuery } from "../lib/queries";
 import { useWindowResize } from "../hooks";
 
 import { Image } from "../components/Image";
@@ -24,7 +24,7 @@ type Props = {
 };
 
 // Home badge color
-const badgeColor = colors.find(color => color.name === 'blue')
+const badgeColor = colors.find(color => color.name === 'green')
 
 const Home: NextPage<Props> = ({ home, projects }) => {
   const { width, height } = useWindowResize();
@@ -70,15 +70,8 @@ const Home: NextPage<Props> = ({ home, projects }) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const query = groq`*[_type == 'home'][0] { 
-    ...,
-    seo {
-      ...,
-      "image": seoImage.asset->
-    }
-   }`;
 
-  const home = await client.fetch(query);
+  const home = await client.fetch(homeQuery);
   const projects = await client.fetch(projectsQuery);
 
   return {
@@ -125,15 +118,24 @@ const BioSection = styled.div`
   margin: 1rem 0;
 `;
 const BioSectionText = styled.p`
-  color: var(--accent-color);
+  color: var(--secondary-color);
   margin-bottom: 1rem;
-  font-size: 1rem;
-  width: 80%;
+  font-size: 2.25rem;
+  width: 100%;
+  font-weight: 500;
+  background: #000000;
+  background: linear-gradient(to top, var(--border-color) 0%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   /* font-family: 'Apple Garamond'; */
 
   @media ${mq.md} {
     width: 50%;
     font-size: 2rem;
+  }
+  @media ${mq.lg} {
+    width: 65%;
+    font-size: 2.625rem;
   }
 `;
 const Container = styled.div`

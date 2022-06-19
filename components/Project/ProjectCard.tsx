@@ -76,18 +76,31 @@ const ProjectInfo = styled.div`
 
   span {
     display: block;
-    margin-bottom: .5rem;
-    text-transform: uppercase;
-    font-size: .8rem;
-    font-weight: 700;
     color: var(--secondary-color);
-  }
+    margin-bottom: .5rem;
+    font-size: .85rem;
+    font-weight: 600;
 
+    @media ${mq.xl2} {
+      font-size: 1rem;
+    }
+  }
+  
   h3 {
-    font-weight: 500;
     margin-bottom: .25rem;
+    font-family: var(--font-family-heading);
+    font-weight: 500;
+    font-style: italic;
+
+    @media ${mq.xl2} {
+      font-size: 2rem;
+    }
   }
   p {
     color: var(--secondary-color);
+    @media ${mq.xl2} {
+      font-size: 1.25rem;
+    }
+    
   }
 `
