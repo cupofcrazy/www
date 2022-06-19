@@ -5,12 +5,10 @@ import { client } from '../lib/sanity';
 import { groq } from 'next-sanity';
 import styled from 'styled-components';
 import { PageHead } from '../components/Seo';
-import { colors, mq } from '../utils';
 import { Styled } from '../styles';
-import { TagList } from '../styles/pages/project.styled'
 import { SiteLink } from '../components/SiteLink';
 import { CoverImage } from '../components/Image/CoverImage';
-import { Badge, BadgeList } from '../components/Badge';
+import { BadgeList } from '../components/Badge';
 
 
 
@@ -19,25 +17,26 @@ type Props = {
   info: any
 }
 const Info: NextPage<Props> = ({ info }) => {
+  console.log({ info })
   return (
     <Content>
       <PageHead title="Information" description='About Me' />
       {/* <p>Information</p> */}
       <CoverImage>
-        <Image src={info.content.seo.image.url} color={info.content.seo.image.metadata.palette.vibrant.background} alt="Logo" aspectRatio={1} />
+        <Image src={info.seo.image.url} color={info.seo.image.metadata.palette.vibrant.background} alt="Logo" aspectRatio={1} />
       </CoverImage>
       <Styled.SectionGrid>
         <Styled.Section>
           <Styled.SectionHeading>About</Styled.SectionHeading>
-          <Styled.SectionText>{info.content.short_bio}</Styled.SectionText>
+          <Styled.SectionText>{info.short_bio}</Styled.SectionText>
         </Styled.Section>
         <Styled.Section>
           <Styled.SectionHeading>Capabilities</Styled.SectionHeading>
-          <BadgeList badgeList={info.content.capabilities} />
+          <BadgeList badgeList={info.capabilities} />
         </Styled.Section>
         <Styled.Section>
           <Styled.SectionHeading>Technologies</Styled.SectionHeading>
-          <BadgeList badgeList={info.content.tools} />
+          <BadgeList badgeList={info.tools} />
         </Styled.Section>
 
       </Styled.SectionGrid>
@@ -46,16 +45,16 @@ const Info: NextPage<Props> = ({ info }) => {
         <Styled.Section>
           <Styled.SectionHeading>Contact</Styled.SectionHeading>
           <Styled.SectionList>
-            {info.content.contacts.map((contact: any) => (
-              <SiteLink key={contact.name} href={contact.href}>{contact.name}</SiteLink>
+            {info.contacts.map((contact: any) => (
+              <SiteLink type="fancy" key={contact.label} href={contact.href}>{contact.label}</SiteLink>
             ))}
           </Styled.SectionList>
         </Styled.Section>
         <Styled.Section>
           <Styled.SectionHeading>Experiments</Styled.SectionHeading>
           <Styled.SectionList>
-            {info.content.experiments.map((experiment: any) => (
-              <SiteLink key={experiment.name} href={experiment.href}>{experiment.name}</SiteLink>
+            {info.experiments.map((experiment: any) => (
+              <SiteLink type="fancy" key={experiment.label} href={experiment.href}>{experiment.label}</SiteLink>
             ))}
           </Styled.SectionList>
         </Styled.Section>
@@ -65,17 +64,16 @@ const Info: NextPage<Props> = ({ info }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const query = groq`*[_type == 'info'][0] {
+  const query = groq`*[_type == 'information'][0] {
     ...,
-    content {
+    seo {
       ...,
-      seo {
-        ...,
-        "image": image.asset->
-      }
+      "image": seoImage.asset->
     }
-  }`
+  }
+  `
   const info = await client.fetch(query)
+  console.log({ info })
   return {
     props: {
       info

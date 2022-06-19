@@ -5,6 +5,8 @@ import { mq } from "../../utils";
 
 
 const ProjectTitle = styled(motion.p)`
+  font-family: var(--font-family-heading);
+  font-style: italic;
   margin: 1rem 0;
   font-size: 2.5rem;
   color: var(--accent-color);
@@ -70,10 +72,12 @@ const FlexSection = styled(motion.div)`
 `
 
 const FlexSectionTitle = styled.h2`
+  font-family: var(--font-family-heading);
   color: var(--accent-color);
   font-weight: 400;
   font-size: 1.15rem;
-  margin-bottom: .5rem;
+  margin-bottom: .25rem;
+  font-style: italic;
   /* margin-right: 2rem; */
 `
 const FlexSectionText = styled.p`

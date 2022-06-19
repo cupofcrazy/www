@@ -12,23 +12,20 @@ export type ProjectDoc = {
   _created_at: string;
   _type: string,
   _updatedAt: string,
-  content: {
-    created_at: string;
-    title: string,
-    subtitle: string,
-    description: string;
-    url: string
-    slug: {
-      current: string
-    },
-    cover:  SanityAsset & { url: string },
-    tags: string[],
-    color: {
-      hex: string
-    },
-    modules: any
-
-  }
+  publishedAt: string;
+  title: string,
+  subtitle: string,
+  description: string;
+  url: string
+  slug: {
+    current: string
+  },
+  cover:  SanityAsset & { url: string },
+  tags: string[],
+  color: {
+    hex: string
+  },
+  content: any
 }
 
 export type Seo = {
@@ -37,12 +34,11 @@ export type Seo = {
   image: SanityAsset & { url: string }
 }
 export type HomeDoc = {
-  content: {
-    bio: string
-    status: string
-    image: {
-      url: string
-    }
-    seo: Seo
+  bio: string
+  status: string
+  image: {
+    url: string
   }
+  seo: Seo
+  
 }

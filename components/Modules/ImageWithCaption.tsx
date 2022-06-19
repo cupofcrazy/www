@@ -9,16 +9,19 @@ interface Props extends ImageProps {
 
 export const ImageWithCaption = ({ caption, alt,  ...props }: Props) => {
   return (
-    <figure>
+    <Figure>
       <Container>
         <Image {...props} alt={caption || 'Project Screenshot' } />
       </Container>
       { caption && <Figcaption><p>{caption}</p></Figcaption> }
-    </figure>
+    </Figure>
   )
 }
 
 
+const Figure = styled.figure`
+  margin: 1rem 0;
+`
 const Figcaption = styled.figcaption`
   font-size: .85rem;
   padding: .5rem;
@@ -30,4 +33,5 @@ const Figcaption = styled.figcaption`
 const Container = styled.div`
   overflow: hidden;
   border-radius: 1rem;
+  
 `

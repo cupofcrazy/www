@@ -6,18 +6,18 @@ const Section = styled.section`
   margin: 1rem 0 0 0;
 `
 const SectionHeading = styled.h2`
+  font-family: 'Newsreader', sans-serif;
+  font-style: italic;
   color: var(--accent-color);
   font-weight: 400;
-  font-size: 1.15rem;
-  margin-bottom: .5rem;
-  /* font-family: 'Newsreader', serif; */
-  /* font-style: italic; */
+  font-size: 1.45rem;
+  margin-bottom: .15rem;
 `
 const SectionText = styled.p`
   color: var(--secondary-color);
   font-weight: 400;
   font-size: 1rem;
-  /* width: 60%; */
+  margin-bottom: 1rem;
 `
 
 const SectionGrid = styled.div`

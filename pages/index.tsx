@@ -36,22 +36,22 @@ const Home: NextPage<Props> = ({ home, projects }) => {
   return (
     <Container>
       <PageHead
-        title={home.content.seo.title}
-        description={home.content.seo.description}
+        title={home.seo.title}
+        description={home.seo.description}
       />
       <CoverImage>
         <Image
-          src={home.content.seo.image.url}
+          src={home.seo.image.url}
           alt="Home Image"
           aspectRatio={1}
-          color={home.content.seo.image.metadata.palette.vibrant.background}
+          color={home.seo.image.metadata.palette.vibrant.background}
         />
       </CoverImage>
 
       <BioSection>
-        <BioSectionText>{home.content.bio}</BioSectionText>
+        <BioSectionText>{home.bio}</BioSectionText>
 
-        <Badge textColor="var(--black)" bgColor={badgeColor!.background}>{home.content.status}</Badge>
+        <Badge textColor="var(--black)" bgColor={badgeColor!.background}>{home.status}</Badge>
       </BioSection>
       <Section>
         <SectionTitle>
@@ -62,7 +62,7 @@ const Home: NextPage<Props> = ({ home, projects }) => {
         </SectionTitle>
         <ProjectContainer projects={projects} />
       </Section>
-      <Marquee>{home.content.seo.title}</Marquee>
+      <Marquee>{home.seo.title}</Marquee>
     </Container>
   );
 };
@@ -72,12 +72,9 @@ export default Home;
 export const getServerSideProps: GetServerSideProps = async () => {
   const query = groq`*[_type == 'home'][0] { 
     ...,
-    content {
+    seo {
       ...,
-      seo {
-        ...,
-        "image": image.asset->
-      }
+      "image": seoImage.asset->
     }
    }`;
 
@@ -130,12 +127,13 @@ const BioSection = styled.div`
 const BioSectionText = styled.p`
   color: var(--accent-color);
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   width: 80%;
+  /* font-family: 'Apple Garamond'; */
 
   @media ${mq.md} {
     width: 50%;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 `;
 const Container = styled.div`

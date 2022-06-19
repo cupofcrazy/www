@@ -68,8 +68,8 @@ const StyledLink = styled.a`
     font-size: 1rem;
     top: 0;
     left: 0;
-    font-family: 'Metrophobic', serif;
-    /* font-style: italic; */
+    font-family: 'Newsreader', serif;
+    font-style: italic;
     transform: translateY(100%);
     transition: all .5s ease;
     color: var(--accent-color);

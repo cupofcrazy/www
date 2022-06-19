@@ -4,12 +4,12 @@ import { mq } from "../utils";
 export const GlobalStyles = createGlobalStyle`
 
   /* Fonts */
-  @font-face {
+  /* @font-face {
     font-family: "Graphik";
     font-weight: 300;
     src: url('/fonts/Graphik.woff2') format('woff2');
     font-display: swap;
-  }
+  } */
   
   /* Box sizing rules */
   *,
@@ -53,6 +53,8 @@ export const GlobalStyles = createGlobalStyle`
     --border-color: rgba(1, 1, 1, .075);
     --border-radius: .75rem;
     --blur-background: #ffffffd1;
+    --font-family-base: 'Inter', sans-serif;
+    --font-family-heading: 'Newsreader', sans-serif;
     /* --vh */
   }
 
@@ -62,7 +64,7 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: smooth; */
     font-size: 14px;
     letter-spacing: 0.25px;
-    font-family: 'Graphik', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
     @media ${mq.md} {

@@ -18,7 +18,7 @@ export const mq = {
   xl3: `screen and (min-width: ${sizes.xl3})`
 };
 
-export const formatNumber = (num: number): string => {
+export const formatNumber = (num: number) => {
   return num < 10 ? `0${num}` : num.toString();
 }
 

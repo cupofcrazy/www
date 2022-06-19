@@ -11,23 +11,23 @@ const Art = ({ art }: { art: any }) => {
   return (
     <>
       <PageHead
-        title={art.content.seo.title}
-        description={art.content.seo.description}
+        title={art.seo.title}
+        description={art.seo.description}
       />
       <Content>
         <CoverImage>
-          <Image src={art.content.seo.image.url} color={art.content.seo.image.metadata.palette.vibrant.background} alt={"Hello"} />
+          <Image src={art.seo.image.url} color={art.seo.image.metadata.palette.vibrant.background} alt={"Hello"} />
         </CoverImage>
 
         <Styled.Section>
-          <Styled.SectionHeading>{art.content.seo.title}</Styled.SectionHeading>
-          <Styled.SectionText>{art.content.seo.description}</Styled.SectionText>
+          <Styled.SectionHeading>{art.seo.title}</Styled.SectionHeading>
+          <Styled.SectionText>{art.seo.description}</Styled.SectionText>
         </Styled.Section>
 
         <Styled.Divider />
 
         <ImageContainer>
-          {art.content.modules.map((module: any) => (
+          {art.modules.map((module: any) => (
             <ImageRow key={module._key}>
               <Image
                 src={module.image.url}
@@ -48,27 +48,24 @@ export default Art;
 export const getStaticProps: GetStaticProps = async () => {
   const query = groq`*[_type == 'art'][0] { 
     ...,
-    content {
+    seo {
       ...,
-      seo {
-        ...,
-        "image": image.asset->,
-      },
-      "modules": modules[] {
-        _key,
-        "image": image.asset->,
-        _type,
-        position,
-        "caption": caption,
-      }
+      "image": seoImage.asset->,
+    },
+    "modules": modules[] {
+      _key,
+      "image": image.asset->,
+      _type,
+      position,
+      "caption": caption,
     }
    }`;
 
-   const p = await client.fetch(groq`*[_type == 'project' && content.slug.current == 'spotify-state'][0]{
+   const p = await client.fetch(groq`*[_type == 'project' && slug.current == 'spotify-state'][0]{
      'project': {
        ...
      },
-     'previousPost': *[_type == 'project' && content.created_at < ^.content.created_at][0]
+     'previousPost': *[_type == 'project' && created_at < ^.created_at][0]
    }`)
 
   const art = await client.fetch(query);
@@ -85,6 +82,7 @@ const Content = styled.div``;
 const ImageContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-radius: 0.5rem;
   gap: 1rem;
 `;
 

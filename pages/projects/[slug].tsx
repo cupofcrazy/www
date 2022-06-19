@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
 import styled from "styled-components";
 import { useRef } from "react";
-import { client } from "../../lib/sanity";
+import { client, PortableText } from "../../lib/sanity";
 import { useOnScreen } from "../../hooks";
 
 import { PageHead } from "../../components/Seo";
@@ -17,9 +17,8 @@ import Styled from "../../styles/pages/project.styled";
 import { type ProjectDoc } from "../../types";
 import { Marquee } from "../../components/Marquee";
 import { projectQuery } from "../../lib/queries";
-import ProjectContainer from "../../components/Project/ProjectContainer";
 import { ProjectCard } from "../../components/Project/ProjectCard";
-import { colors, mq } from "utils";
+import { mq } from "utils";
 import { BadgeList } from "components/Badge/BadgeList";
 
 type Props = {
@@ -51,34 +50,34 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
   return (
     <>
       <PageHead
-        title={project.content.title}
-        description={project.content.subtitle}
+        title={project.title}
+        description={project.subtitle}
       />
   
       <Content>
         <CoverImage>
           <Image
-            src={project.content.cover.url}
+            src={project.cover.url}
             alt="Project Image"
-            color={project.content.cover.metadata.palette.dominant.background}
+            color={project.cover.metadata.palette.dominant.background}
             aspectRatio={1}
           />
         </CoverImage>
-        <Styled.ProjectTitle>{project.content.title}</Styled.ProjectTitle>
+        <Styled.ProjectTitle>{project.title}</Styled.ProjectTitle>
         <Badge>
-          {project.content.subtitle}
+          {project.subtitle}
         </Badge>
 
         <AppStyles.Divider />
         <Styled.ProjectInfo>
           <Styled.Section initial="initial" animate="animate" variants={variants}>
             <Styled.FlexSectionTitle>Description</Styled.FlexSectionTitle>
-            <Styled.SectionText>{project.content.description}</Styled.SectionText>
+            <Styled.SectionText>{project.description}</Styled.SectionText>
           </Styled.Section>
 
           <Styled.FlexSection>
             <Styled.FlexSectionTitle>Tags</Styled.FlexSectionTitle>
-            <BadgeList badgeList={project.content.tags} />
+            <BadgeList badgeList={project.tags} />
           </Styled.FlexSection>
 
 
@@ -87,7 +86,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
               See Online (URL)
             </Styled.FlexSectionTitle>
             <Styled.FlexSectionText>
-              { project.content.url ? <SiteLink href={project.content.url}>
+              { project.url ? <SiteLink type="fancy" href={project.url}>
                 Live Website
               </SiteLink> : <p>Not Live Yet</p> }
             </Styled.FlexSectionText>
@@ -96,31 +95,8 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
 
         <AppStyles.Divider />
         <div className="modules" style={{ marginTop: "2rem" }}>
-          {project.content.modules.map((module: any) => {
-            switch (module._type) {
-              case "alignedImage":
-                return (
-                  <ModuleImage>
-                    <ImageWithCaption
-                      caption={module.caption}
-                      src={module.image.url}
-                      aspectRatio={module.image.metadata.dimensions.aspectRatio}
-                      color={module.image.metadata.palette.vibrant.background}
-                      alt="Image"
-                    />
-                  </ModuleImage>
-                );
-              case "textModule":
-                return (
-                  <TextSectionModule title={module.title} body={module.body} />
-                );
-              case "doubleImage":
-                return (
-                  <DoubleImageModule module={module} />
-                );
-            }
-          })}
-          <Marquee speed={.8}>{project.content.subtitle}</Marquee>
+          <PortableText value={project.content} />
+          <Marquee speed={.8}>{project.subtitle}</Marquee>
         </div>
         {
           <OtherProjectsContainer style={{ justifyContent: !nextProject ? 'flex-start' : 'flex-end'}}>

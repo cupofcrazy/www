@@ -29,7 +29,7 @@ const variants: Variants = {
 
 export const ProjectItem: React.FC<Props> = ({ project, id }) => {
   return (
-    <Link href={`/projects/${project.content.slug.current}`} passHref>
+    <Link href={`/projects/${project.slug.current}`} passHref>
       <StyledLink>
         <ProjectImage>
           <ProjectOverlay>
@@ -38,15 +38,15 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
             </div>
           </ProjectOverlay>
           <Image
-            src={project.content.cover.url}
+            src={project.cover.url}
             alt={"Project Image"}
-            aspectRatio={1}
+            aspectRatio={0.8}
             className="image"
           />
         </ProjectImage>
         <ProjectInfo>
-          <p>{project.content.title}</p>
-          <Badge>{format(new Date(project.content.created_at), "MMM Y")}</Badge>
+          <p>{project.title}</p>
+          <Badge>{format(new Date(project.publishedAt), "MMM Y")}</Badge>
         </ProjectInfo>
 
       </StyledLink>
@@ -59,7 +59,7 @@ const ProjectOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .25);
+  background-color: rgba(0, 0, 0, .5);
   width: 100%;
   height: 100%;
   display: flex;
@@ -85,7 +85,7 @@ const StyledLink = styled.a`
   /* transform: scale(1); */
 
   .arrow {
-    transform: scale(0);
+    transform: scale(0) translateY(2rem);
     transition: all .3s ease;
   }
 
@@ -99,7 +99,7 @@ const StyledLink = styled.a`
       opacity: 1;
     }
     .arrow {
-      transform: scale(1);
+      transform: scale(1) translateY(0rem);
       transition: all .5s ease;
     }
     
@@ -115,7 +115,7 @@ const StyledLink = styled.a`
 
 const ProjectDetails = styled.div`
   background-color: var(--background-color);
-
+  
   z-index: 2;
   padding: 1rem;
   opacity: 0;
@@ -174,6 +174,7 @@ const ProjectInfo = styled.div`
   justify-content: space-between;
   font-size: 1rem;
   color: var(--accent-color);
+  
 
   p {
     color: var(--accent-color);

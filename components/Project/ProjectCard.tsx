@@ -14,15 +14,15 @@ interface Props {
 
 export const ProjectCard: React.FC<Props> = ({ title, project, ...props }) => {
   return (
-    <Link href={`/projects/${project.content.slug.current}`} passHref>
+    <Link href={`/projects/${project.slug.current}`} passHref>
       <Content {...props}>
         <ProjectImage>
-          <Image src={project.content.cover.url} alt="Project Image" aspectRatio={1} className="image" />
+          <Image src={project.cover.url} alt="Project Image" aspectRatio={1} className="image" />
         </ProjectImage>
         <ProjectInfo>
           <span>{title}</span>
-          <h3>{project.content.title}</h3>
-          <p>{project.content.subtitle}</p>
+          <h3>{project.title}</h3>
+          <p>{project.subtitle}</p>
         </ProjectInfo>
       </Content>
     </Link>
