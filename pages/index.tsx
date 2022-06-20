@@ -41,10 +41,10 @@ const Home: NextPage<Props> = ({ home, projects }) => {
       />
       <CoverImage>
         <Image
-          src={home.seo.image.url}
+          src={home.mainImage.url}
           alt="Home Image"
           aspectRatio={1}
-          color={home.seo.image.metadata.palette.vibrant.background}
+          color={home.mainImage.metadata.palette.vibrant.background}
         />
       </CoverImage>
 

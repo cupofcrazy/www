@@ -43,6 +43,10 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.25;
   }
 
+  li {
+    margin-bottom: .15rem;
+  }
+
   :root {
     --white: #FFF;
     --black: #111;

@@ -46,7 +46,9 @@ const Info: NextPage<Props> = ({ info }) => {
           <Styled.SectionHeading>Contact</Styled.SectionHeading>
           <Styled.SectionList>
             {info.contacts.map((contact: any) => (
-              <SiteLink type="fancy" key={contact.label} href={contact.href}>{contact.label}</SiteLink>
+              <li>
+                <SiteLink type="fancy" key={contact.label} href={contact.href}>{contact.label}</SiteLink>
+              </li>
             ))}
           </Styled.SectionList>
         </Styled.Section>
@@ -54,7 +56,9 @@ const Info: NextPage<Props> = ({ info }) => {
           <Styled.SectionHeading>Experiments</Styled.SectionHeading>
           <Styled.SectionList>
             {info.experiments.map((experiment: any) => (
-              <SiteLink type="fancy" key={experiment.label} href={experiment.href}>{experiment.label}</SiteLink>
+              <li>
+                <SiteLink type="fancy" key={experiment.label} href={experiment.href}>{experiment.label}</SiteLink>
+              </li>
             ))}
           </Styled.SectionList>
         </Styled.Section>

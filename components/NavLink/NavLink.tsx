@@ -1,7 +1,7 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import cn from 'classnames'
-import { useRouter } from 'next/router';
 import { ease } from '../../utils';
 
 
@@ -55,7 +55,7 @@ const StyledLink = styled.a`
   .container {
     display: block;
     position: relative;
-    overflow: hidden;
+    overflow: hidden !important;
     /* padding-right: 1rem; */
   }
   .text {
@@ -65,7 +65,7 @@ const StyledLink = styled.a`
   }
   .hover {
     position: absolute;
-    font-size: 1rem;
+    font-size: 1.1rem;
     top: 0;
     left: 0;
     font-family: 'Newsreader', serif;

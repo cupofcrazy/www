@@ -32,6 +32,9 @@ const components = {
     h2: ({ children }: PropsWithChildren) => (
       <Styled.SectionHeading>{children}</Styled.SectionHeading>
     ),
+    h3: ({ children }: PropsWithChildren) => (
+      <Styled.SectionHeading>{children}</Styled.SectionHeading>
+    ),
     normal: ({ children }: PropsWithChildren) => (
       <Styled.SectionText>{children}</Styled.SectionText>
     )

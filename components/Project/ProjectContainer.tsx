@@ -48,6 +48,6 @@ const Container = styled(motion.div)`
     grid-template-columns: repeat(3, 1fr);
   }
   @media ${mq.xl2} {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 `

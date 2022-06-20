@@ -7,7 +7,7 @@ import { NavLink } from "../NavLink";
 const navItems = [
   { href: '/', name: 'Index' },
   { href: '/art', name: 'Art' },
-  { href: '/information', name: 'Info' },
+  { href: '/information', name: 'Information' },
 ]
 
 const toggleTheme = () => {

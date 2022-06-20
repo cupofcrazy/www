@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components'
 import NextImage from 'next/image'
 import { useState } from 'react';
 import cn from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, type Variants } from 'framer-motion';
 
 
 export type Props = {
@@ -13,7 +13,7 @@ export type Props = {
   className?: string
 }
 
-const variants = {
+const variants: Variants = {
   initial: {
     opacity: 1,
   },
@@ -22,7 +22,7 @@ const variants = {
     
   },
   exit: {
-    opacity: 0,
+    opacity: 0
   }
 }
 

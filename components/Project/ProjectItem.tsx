@@ -40,7 +40,7 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
           <Image
             src={project.cover.url}
             alt={"Project Image"}
-            aspectRatio={1.25}
+            aspectRatio={1}
             className="image"
           />
         </ProjectImage>
@@ -85,7 +85,7 @@ const StyledLink = styled.a`
   /* transform: scale(1); */
 
   .arrow {
-    transform: scale(0) translateY(2rem);
+    transform: scale(0);
     transition: all .3s ease;
   }
 
@@ -99,7 +99,7 @@ const StyledLink = styled.a`
       opacity: 1;
     }
     .arrow {
-      transform: scale(1) translateY(0rem);
+      transform: scale(1);
       transition: all .5s ease;
     }
     

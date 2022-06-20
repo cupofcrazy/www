@@ -61,6 +61,10 @@ export const projectQuery = groq`*[_type == 'project' && slug.current == $slug] 
 export const homeQuery = groq`*[_type == 'home'][0] {
   bio,
   status,
+  "mainImage": mainImage.image.asset-> {
+    url,
+    metadata
+  },
   seo {
     title,
     description,

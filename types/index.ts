@@ -36,6 +36,7 @@ export type Seo = {
 export type HomeDoc = {
   bio: string
   status: string
+  mainImage: SanityAsset & { url: string }
   image: {
     url: string
   }
