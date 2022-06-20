@@ -50,6 +50,8 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
       <PageHead
         title={project.title}
         description={project.subtitle}
+        image={project.seo.image.url}
+        keywords={project.seo.keywords}
       />
   
       <Content>

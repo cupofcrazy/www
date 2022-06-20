@@ -7,6 +7,7 @@ import {
 
 
 export type ProjectDoc = {
+  seo: Seo,
   _id: string
   _key: string
   _created_at: string;
@@ -32,6 +33,7 @@ export type Seo = {
   title: string;
   description: string
   image: SanityAsset & { url: string }
+  keywords: string
 }
 export type HomeDoc = {
   bio: string

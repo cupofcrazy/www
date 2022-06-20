@@ -25,6 +25,15 @@ export const projectQuery = groq`*[_type == 'project' && slug.current == $slug] 
     url,
     isLive,
     publishedAt,
+    seo {
+      title,
+      description,
+      keywords,
+      "image": seoImage.asset-> {
+        url,
+        metadata
+      }
+    },
     "cover": cover.asset-> {
       url,
       metadata
@@ -68,6 +77,7 @@ export const homeQuery = groq`*[_type == 'home'][0] {
   seo {
     title,
     description,
+    keywords,
     "image": seoImage.asset-> {
       metadata,
       url
@@ -75,3 +85,41 @@ export const homeQuery = groq`*[_type == 'home'][0] {
     }
   }
 }`
+
+export const informationQuery = groq`*[_type == 'information'][0] {
+  short_bio,
+  capabilities,
+  tools,
+  contacts,
+  experiments,
+  seo {
+    title,
+    description,
+    "image": seoImage.asset-> {
+      url,
+      metadata
+    }
+  }
+}
+`
+
+export const artPageQuery = groq`*[_type == 'art'][0] {
+  subtitle,
+  seo {
+    title,
+    description,
+    keywords,
+    "image": seoImage.asset-> {
+      url,
+      metadata
+    },
+  },
+  "modules": modules[] {
+    _key,
+    "image": image.asset->,
+    _type,
+    position,
+    "caption": caption,
+  }
+}
+`

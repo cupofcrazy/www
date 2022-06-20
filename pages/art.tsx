@@ -1,11 +1,14 @@
 import { GetStaticProps } from "next";
 import { groq } from "next-sanity";
-import { Image } from "../components/Image";
+import { Image } from "components/Image";
 import styled from "styled-components";
-import { CoverImage } from "../components/Image/CoverImage";
-import { PageHead } from "../components/Seo";
-import { client } from "../lib/sanity";
-import { Styled } from "../styles";
+import { CoverImage } from "components/Image/CoverImage";
+import { PageHead } from "components/Seo";
+import { client } from "lib/sanity";
+import { Styled } from "styles";
+import { artPageQuery } from "lib/queries";
+
+
 
 const Art = ({ art }: { art: any }) => {
   return (
@@ -13,6 +16,8 @@ const Art = ({ art }: { art: any }) => {
       <PageHead
         title={art.seo.title}
         description={art.seo.description}
+        image={art.seo.image}
+        keywords={art.seo.keywords}
       />
       <Content>
         <CoverImage>
@@ -46,29 +51,7 @@ const Art = ({ art }: { art: any }) => {
 export default Art;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const query = groq`*[_type == 'art'][0] { 
-    ...,
-    seo {
-      ...,
-      "image": seoImage.asset->,
-    },
-    "modules": modules[] {
-      _key,
-      "image": image.asset->,
-      _type,
-      position,
-      "caption": caption,
-    }
-   }`;
-
-   const p = await client.fetch(groq`*[_type == 'project' && slug.current == 'spotify-state'][0]{
-     'project': {
-       ...
-     },
-     'previousPost': *[_type == 'project' && created_at < ^.created_at][0]
-   }`)
-
-  const art = await client.fetch(query);
+  const art = await client.fetch(artPageQuery);
 
   return {
     props: {

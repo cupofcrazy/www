@@ -48,7 +48,6 @@ export default class MyDocument extends Document {
             content="default"
           />
           <meta name="apple-mobile-web-app-title" content="Tobi Balogun" />
-          <meta name="description" content="Front-end Engineer and Designer" />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta
@@ -79,27 +78,7 @@ export default class MyDocument extends Document {
           />
           <link rel="shortcut icon" href="/favicon.ico" />
 
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content="https://twitter.com/istobihere" />
-          <meta name="twitter:title" content="Front-end Engineer and Designer" />
-          <meta
-            name="twitter:description"
-            content="Best PWA App in the world"
-          />
-          <meta
-            name="twitter:image"
-            content="https://yourdomain.com/icons/android-chrome-192x192.png"
-          />
-          <meta name="twitter:creator" content="@istobihere" />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="Tobi Balogun" />
-          <meta property="og:description" content="Front-end Engineer and Designer" />
-          <meta property="og:site_name" content="PWA App" />
-          <meta property="og:url" content="https://yourdomain.com" />
-          <meta
-            property="og:image"
-            content="https://deploy-ebon.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fax8jt3wl%2Fproduction%2F7a7be496f5bd640404164216de2b58f439f9d249-500x500.png&w=2048&q=75"
-          />
+          
           {/* <link rel="preload" as="font" /> */}
           
           <link

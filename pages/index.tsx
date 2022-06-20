@@ -16,6 +16,7 @@ import { CoverImage } from "../components/Image/CoverImage";
 import { colors, formatNumber, mq } from "../utils";
 import type { HomeDoc, ProjectDoc } from "../types";
 import { Marquee } from "../components/Marquee";
+import { Styled } from "styles";
 
 
 type Props = {
@@ -38,6 +39,8 @@ const Home: NextPage<Props> = ({ home, projects }) => {
       <PageHead
         title={home.seo.title}
         description={home.seo.description}
+        image={home.seo.image}
+        keywords={home.seo.keywords}
       />
       <CoverImage>
         <Image
@@ -60,8 +63,10 @@ const Home: NextPage<Props> = ({ home, projects }) => {
             <span>{formatNumber(projects.length)}</span>
           </p>
         </SectionTitle>
+        <Styled.Divider />
         <ProjectContainer projects={projects} />
       </Section>
+      <Styled.Divider />
       <Marquee>{home.seo.title}</Marquee>
     </Container>
   );
@@ -83,7 +88,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const Section = styled.section`
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 `;
 
 const SectionTitle = styled.div`
@@ -119,9 +124,9 @@ const BioSection = styled.div`
 `;
 const BioSectionText = styled.p`
   color: var(--secondary-color);
-  margin-bottom: 1rem;
-  font-size: 2.25rem;
-  width: 100%;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  width: 70%;
   font-weight: 500;
   background: #000000;
   background: linear-gradient(to top, var(--border-color) 0%, var(--accent-color) 100%);

@@ -9,8 +9,7 @@ import { Styled } from '../styles';
 import { SiteLink } from '../components/SiteLink';
 import { CoverImage } from '../components/Image/CoverImage';
 import { BadgeList } from '../components/Badge';
-
-
+import { informationQuery } from 'lib/queries';
 
 
 type Props = {
@@ -20,7 +19,12 @@ const Info: NextPage<Props> = ({ info }) => {
   console.log({ info })
   return (
     <Content>
-      <PageHead title="Information" description='About Me' />
+      <PageHead 
+        title={info.seo.title}
+        description={info.seo.description}
+        image={info.seo.image}
+        keywords={info.seo.keywords}
+      />
       {/* <p>Information</p> */}
       <CoverImage>
         <Image src={info.seo.image.url} color={info.seo.image.metadata.palette.vibrant.background} alt="Logo" aspectRatio={1} />
@@ -68,15 +72,7 @@ const Info: NextPage<Props> = ({ info }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const query = groq`*[_type == 'information'][0] {
-    ...,
-    seo {
-      ...,
-      "image": seoImage.asset->
-    }
-  }
-  `
-  const info = await client.fetch(query)
+  const info = await client.fetch(informationQuery)
   console.log({ info })
   return {
     props: {
