@@ -25,7 +25,7 @@ type Props = {
 };
 
 // Home badge color
-const badgeColor = colors.find(color => color.name === 'green')
+const badgeColor = colors.find(color => color.name === 'yellow')
 
 const Home: NextPage<Props> = ({ home, projects }) => {
   const { width, height } = useWindowResize();
