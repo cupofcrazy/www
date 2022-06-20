@@ -64,9 +64,9 @@ const Content = styled.div``;
 
 const ImageContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   border-radius: 0.5rem;
-  gap: 1rem;
+  gap: 1.5rem;
 `;
 
 const ImageRow = styled.div`

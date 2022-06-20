@@ -1,21 +1,21 @@
 import type { GetServerSideProps, NextPage } from "next";
 import styled from "styled-components";
 import { useRef } from "react";
-import { client, PortableText } from "../../lib/sanity";
-import { useOnScreen } from "../../hooks";
+import { client, PortableText } from "lib/sanity";
+import { useOnScreen } from "hooks";
 
-import { PageHead } from "../../components/Seo";
-import { Image } from "../../components/Image";
-import { SiteLink } from "../../components/SiteLink";
-import { CoverImage } from "../../components/Image/CoverImage";
-import { Badge } from "../../components/Badge/Badge";
+import { PageHead } from "components/Seo";
+import { Image } from "components/Image";
+import { SiteLink } from "components/SiteLink";
+import { CoverImage } from "components/Image/CoverImage";
+import { Badge } from "components/Badge/Badge";
 
-import { Styled as AppStyles } from '../../styles'
-import Styled from "../../styles/pages/project.styled";
-import { type ProjectDoc } from "../../types";
-import { Marquee } from "../../components/Marquee";
-import { projectQuery } from "../../lib/queries";
-import { ProjectCard } from "../../components/Project/ProjectCard";
+import { Styled as AppStyles } from 'styles'
+import Styled from "styles/pages/project.styled";
+import { type ProjectDoc } from "types";
+import { Marquee } from "components/Marquee";
+import { projectQuery } from "lib/queries";
+import { ProjectCard } from "components/Project/ProjectCard";
 import { mq } from "utils";
 import { BadgeList } from "components/Badge/BadgeList";
 
@@ -97,6 +97,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
         <div className="modules" style={{ marginTop: "2rem" }}>
           <PortableText value={project.content} />
           <Marquee speed={.8}>{project.subtitle}</Marquee>
+          <AppStyles.Divider />
         </div>
         {
           <OtherProjectsContainer style={{ justifyContent: !nextProject ? 'flex-start' : 'flex-end'}}>

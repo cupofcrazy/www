@@ -19,6 +19,7 @@ const config = {
   useCdn: process.env.NODE_ENV === 'production'
 }
 
+// Custom Components for Sanity Block types
 const components = {
   marks: {
     link: ({ children, value }: { children: any, value: any }) => (
@@ -58,7 +59,7 @@ const components = {
             overflow: 'hidden',
           }}
           title={caption}
-          loop muted autoPlay playsInline controls>
+          loop muted autoPlay playsInline>
           <source src={fallback.url} type={`video/${fallback.extension}`} />
           <source src={fallback.url} type={`video/${fallback.extension}`} />
       </video>

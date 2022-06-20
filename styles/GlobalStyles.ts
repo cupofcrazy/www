@@ -41,6 +41,7 @@ export const GlobalStyles = createGlobalStyle`
   dd {
     margin: 0;
     line-height: 1.25;
+    color: var(--accent-color);
   }
 
   li {
@@ -121,6 +122,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   li {
+    color: var(--accent-color);
     list-style-type: none;
   }
 
@@ -168,6 +170,7 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     text-decoration: none;
     display: block;
+    color: var(--accent-color);
   }
 
 

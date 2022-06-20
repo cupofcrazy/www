@@ -56,7 +56,7 @@ const Home: NextPage<Props> = ({ home, projects }) => {
 
         <Badge textColor="var(--black)" bgColor={badgeColor!.background}>{home.status}</Badge>
       </BioSection>
-      <Section>
+      <Section style={{ marginTop: '2.625rem' }}>
         <SectionTitle>
           <h2>Projects</h2>
           <p>
