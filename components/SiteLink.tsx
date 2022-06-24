@@ -23,8 +23,12 @@ const StyledLink = styled.a`
   padding: .25rem .45rem .25rem .45rem;
   border-radius: .5rem;
   align-items: center;
-  gap: 0rem;
+  gap: .25rem;
   transition: all .3s ease;
+
+  svg {
+    transition: all .5s ease;
+  }
 
   &.fancy {
     padding: .25rem .5rem .25rem 0rem;
@@ -34,6 +38,11 @@ const StyledLink = styled.a`
     background-color: var(--border-color);
     /* padding: .25rem .5rem .25rem .5rem; */
     transition: all .3s ease;
+
+    svg {
+      transform: rotate(-45deg);
+      transition: all .5s ease;
+    }
 
     &.fancy {
       padding: .25rem .5rem .25rem .5rem;

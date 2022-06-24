@@ -26,29 +26,36 @@ export const ease = {
   easeInOutExpo: 'cubic-bezier(0.87, 0, 0.13, 1)'
 }
 
-export const colors = [
-  {
-    name: 'pink',
-    background: '#FFD7F6' 
-  },
-  {
-    name: 'green',
-    background: '#C0FFB5' 
-  },
-  {
-    name: 'yellow',
-    background: '#FFE897' 
-  },
-  {
-    name: 'blue',
-    background: '#BFF0FF' 
-  },
-  {
-    name: 'gray',
-    background: '#FFE2D9' 
-  },
-  {
-    name: 'orange',
-    background: '#EFEFEF' 
-  },
-]
+const shuffle = (array: any[]) => {
+  return array
+    .map((a) => [Math.random(), a])
+    .sort((a, b) => a[0] - b[0])
+    .map((a) => a[1])
+} 
+
+export const colors = shuffle([
+{
+  name: 'pink',
+  background: '#FFD7F6' 
+},
+{
+  name: 'green',
+  background: '#C0FFB5' 
+},
+{
+  name: 'yellow',
+  background: '#FFE897' 
+},
+{
+  name: 'blue',
+  background: '#BFF0FF' 
+},
+{
+  name: 'gray',
+  background: '#FFE2D9' 
+},
+{
+  name: 'orange',
+  background: '#EFEFEF' 
+},
+])

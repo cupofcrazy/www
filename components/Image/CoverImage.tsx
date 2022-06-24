@@ -1,18 +1,12 @@
-import styled from 'styled-components'
-import { mq } from '../../utils'
-
+import styled from "styled-components";
+import { mq } from "../../utils";
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 export const CoverImage = ({ children }: Props) => {
-  return (
-    <Container>
-      {children}
-    </Container>
-  )
-}
-
+  return <Container>{children}</Container>;
+};
 
 const Container = styled.div`
   width: 240px;
@@ -27,4 +21,4 @@ const Container = styled.div`
     border-radius: 1rem;
     width: 480px;
   }
-`
+`;

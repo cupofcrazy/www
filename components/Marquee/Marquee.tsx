@@ -32,12 +32,15 @@ export const Marquee: React.FC<MarqueeProps> = ({
 };
 
 const MarqueeEl = styled.div<Pick<MarqueeProps, 'textColor'>>`
+  font-family: var(--font-family-heading);
+  font-style: italic;
   font-size: 6rem;
   overflow: hidden;
-  color: ${({ textColor }) => textColor};
+  color: ${({ textColor }) => textColor };
+  letter-spacing: -0.1rem;
 
   @media ${mq.xl2} {
-    font-size: 10rem;
+    font-size: 12rem;
   }
 `;
 const Container = styled.div`

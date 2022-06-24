@@ -18,20 +18,20 @@ import type { HomeDoc, ProjectDoc } from "../types";
 import { Marquee } from "../components/Marquee";
 import { Styled } from "styles";
 
-
 type Props = {
   home: HomeDoc;
   projects: ProjectDoc[];
 };
 
 // Home badge color
-const badgeColor = colors.find(color => color.name === 'yellow')
+const badgeColor = colors.find((color) => color.name === "yellow");
 
 const Home: NextPage<Props> = ({ home, projects }) => {
   const { width, height } = useWindowResize();
 
   useEffect(() => {
     // document.documentElement.style.setProperty("--vh", `${height}px`);
+    console.log(home)
   }, [height]);
 
   return (
@@ -44,19 +44,21 @@ const Home: NextPage<Props> = ({ home, projects }) => {
       />
       <CoverImage>
         <Image
-          src={home.mainImage.url}
-          alt="Home Image"
+          src={home.mainImage.image.url}
+          alt={home.mainImage.alt}
           aspectRatio={1}
-          color={home.mainImage.metadata.palette.vibrant.background}
+          color={home.mainImage.image.metadata.palette.vibrant.background}
         />
       </CoverImage>
 
       <BioSection>
         <BioSectionText>{home.bio}</BioSectionText>
 
-        <Badge textColor="var(--black)" bgColor={badgeColor!.background}>{home.status}</Badge>
+        <Badge textColor="var(--black)" bgColor={badgeColor!.background}>
+          {home.status}
+        </Badge>
       </BioSection>
-      <Section style={{ marginTop: '2.625rem' }}>
+      <Section style={{ marginTop: "2.625rem" }}>
         <SectionTitle>
           <h2>Projects</h2>
           <p>
@@ -75,7 +77,6 @@ const Home: NextPage<Props> = ({ home, projects }) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-
   const home = await client.fetch(homeQuery);
   const projects = await client.fetch(projectsQuery);
 
@@ -129,7 +130,11 @@ const BioSectionText = styled.p`
   width: 70%;
   font-weight: 500;
   background: #000000;
-  background: linear-gradient(to top, var(--border-color) 0%, var(--accent-color) 100%);
+  background: linear-gradient(
+    to top,
+    var(--border-color) 0%,
+    var(--accent-color) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   /* font-family: 'Apple Garamond'; */

@@ -23,10 +23,10 @@ const Figure = styled.figure`
   margin: 1rem 0;
 `
 const Figcaption = styled.figcaption`
+  color: var(--secondary-color) !important;
   font-size: .9rem;
   padding: .5rem;
   text-align: center;
-  color: var(--secondary-color);
   font-style: italic;
   font-family: var(--font-family-heading);
 `

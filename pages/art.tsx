@@ -7,6 +7,7 @@ import { PageHead } from "components/Seo";
 import { client } from "lib/sanity";
 import { Styled } from "styles";
 import { artPageQuery } from "lib/queries";
+import { ImageWithCaption } from "components/Modules";
 
 
 
@@ -34,11 +35,11 @@ const Art = ({ art }: { art: any }) => {
         <ImageContainer>
           {art.modules.map((module: any) => (
             <ImageRow key={module._key}>
-              <Image
+              <ImageWithCaption
                 src={module.image.url}
                 aspectRatio={module.image.metadata.dimensions.aspectRatio}
                 color={module.image.metadata.palette.vibrant.background}
-                alt="Image"
+                alt={module.image.caption}
               />
             </ImageRow>
           ))}

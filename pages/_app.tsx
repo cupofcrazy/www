@@ -11,7 +11,6 @@ import { ThemeProvider } from "../contexts/ThemeContext";
 import { Footer } from "../components/Layout/Footer";
 import { Marquee } from "../components/Marquee";
 
-
 Router.events.on("routeChangeStart", nProgress.start);
 Router.events.on("routeChangeError", nProgress.done);
 Router.events.on("routeChangeComplete", nProgress.done);
@@ -44,11 +43,12 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <GlobalStyles />
           <AnimatePresence
             onExitComplete={() => {
-              if (typeof window !== 'undefined') {
-                window.scrollTo({ top: 0 })
+              if (typeof window !== "undefined") {
+                window.scrollTo({ top: 0 });
               }
             }}
-            exitBeforeEnter>
+            exitBeforeEnter
+          >
             <motion.div
               transition={{ ease: "easeOut" }}
               key={router.asPath}

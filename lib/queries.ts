@@ -13,7 +13,7 @@ export const projectsQuery = groq`*[_type == 'project'] | order(publishedAt desc
   color,
   "cover": cover.asset->,
 }
-`
+`;
 
 export const projectQuery = groq`*[_type == 'project' && slug.current == $slug]  | order(publishedAt desc) [0]  {
   'project': {
@@ -65,14 +65,17 @@ export const projectQuery = groq`*[_type == 'project' && slug.current == $slug] 
     },
   }
 }
-`
+`;
 
 export const homeQuery = groq`*[_type == 'home'][0] {
   bio,
   status,
-  "mainImage": mainImage.image.asset-> {
-    url,
-    metadata
+  "mainImage": mainImage {
+    alt,
+    "image": image.asset-> {
+      url,
+      metadata
+    }
   },
   seo {
     title,
@@ -84,7 +87,7 @@ export const homeQuery = groq`*[_type == 'home'][0] {
 
     }
   }
-}`
+}`;
 
 export const informationQuery = groq`*[_type == 'information'][0] {
   short_bio,
@@ -92,6 +95,13 @@ export const informationQuery = groq`*[_type == 'information'][0] {
   tools,
   contacts,
   experiments,
+  "mainImage": mainImage {
+    "image": image.asset-> {
+      url,
+      metadata
+    },
+    alt
+  },
   seo {
     title,
     description,
@@ -101,7 +111,7 @@ export const informationQuery = groq`*[_type == 'information'][0] {
     }
   }
 }
-`
+`;
 
 export const artPageQuery = groq`*[_type == 'art'][0] {
   subtitle,
@@ -122,4 +132,4 @@ export const artPageQuery = groq`*[_type == 'art'][0] {
     "caption": caption,
   }
 }
-`
+`;

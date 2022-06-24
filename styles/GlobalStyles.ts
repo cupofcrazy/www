@@ -48,6 +48,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: .15rem;
   }
 
+  /* CSS Variables */
   :root {
     --white: #FFF;
     --black: #111;

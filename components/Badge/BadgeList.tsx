@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Badge } from "./Badge";
 import { colors } from "utils";
 
-
 interface Props {
   badgeList: React.ReactNode[];
 }
