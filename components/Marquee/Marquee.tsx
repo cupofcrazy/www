@@ -35,6 +35,7 @@ const MarqueeEl = styled.div<Pick<MarqueeProps, 'textColor'>>`
   font-family: var(--font-family-heading);
   font-style: italic;
   font-size: 6rem;
+  font-weight: 100;
   overflow: hidden;
   color: ${({ textColor }) => textColor };
   letter-spacing: -0.1rem;

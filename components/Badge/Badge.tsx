@@ -27,9 +27,9 @@ export const StyledBadge = styled.span<StyleProps>`
   color: ${({ textColor }) => textColor};
   background-color: ${({ bgColor }) => bgColor};
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: .85rem;
 
   @media ${mq.md} {
-    font-size: 1rem;
+    font-size: .85rem;
   }
 `;

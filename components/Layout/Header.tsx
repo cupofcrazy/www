@@ -47,7 +47,7 @@ const Content = styled.div`
     width: ${sizes.md};
   }
   @media ${mq.xl2} {
-    width: ${sizes.xl};
+    width: ${sizes.lg};
   }
 `
 

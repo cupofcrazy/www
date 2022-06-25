@@ -21,6 +21,10 @@ export const ImageWithCaption = ({ caption, alt,  ...props }: Props) => {
 
 const Figure = styled.figure`
   margin: 1rem 0;
+
+  & + h3, p {
+    margin-bottom: 2rem;
+  }
 `
 const Figcaption = styled.figcaption`
   color: var(--secondary-color) !important;

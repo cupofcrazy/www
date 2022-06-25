@@ -1,11 +1,12 @@
 import cn from "classnames";
 import { ArrowIcon } from "components/ArrowIcon";
+import { BadgeList } from "components/Badge";
 import format from "date-fns/format";
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import styled from "styled-components";
 import { type ProjectDoc } from "../../types";
-import { mq } from "../../utils";
+import { ease, mq } from "../../utils";
 import { Badge } from "../Badge/Badge";
 import { Image } from "../Image";
 
@@ -31,154 +32,80 @@ export const ProjectItem: React.FC<Props> = ({ project, id }) => {
   return (
     <Link href={`/projects/${project.slug.current}`} passHref>
       <StyledLink>
-        <ProjectImage>
-          <ProjectOverlay>
-            <div className="arrow">
-              <ArrowIcon stroke="var(--black)" size={16} />
-            </div>
-          </ProjectOverlay>
-          <Image
-            src={project.cover.url}
-            alt={"Project Image"}
-            aspectRatio={1}
-            className="image"
-          />
-        </ProjectImage>
-        <ProjectInfo>
-          <p>{project.title}</p>
-          <Badge>{format(new Date(project.publishedAt), "MMM Y")}</Badge>
-        </ProjectInfo>
+        <ProjectImageContainer>
+        <Image src={project.cover.url} alt={project.title} />
 
+        </ProjectImageContainer>
+        <ProjectDetails>
+          <ProjectInfo>
+            <h3>{project.title}</h3>
+            <p>{project.subtitle}</p>
+        {/* <BadgeList badgeList={project.tags} /> */}
+          </ProjectInfo>
+          <Badge>{format(new Date(project.publishedAt), "MMM Y")}</Badge>
+        </ProjectDetails>
       </StyledLink>
     </Link>
   );
 };
-
-const ProjectOverlay = styled.div`
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, .5);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items:  center;
-  justify-content: center;
-  z-index: 2;
-  transition: all .3s ease;
-  
-  div {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-`
 const StyledLink = styled.a`
-  position: relative;
-  overflow: hidden;
-  /* transform: scale(1); */
-
-  .arrow {
-    transform: scale(0);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: .45rem;
+  transition: all .3s ease;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  /* border: 1px solid var(--border-color);
+  background-color: var(--border-color); */
+  
+  &:hover {
+    /* border: 1px solid var(--border-color); */
+    background-color: var(--border-color);
     transition: all .3s ease;
   }
-
-  .image {
-    transition: all 1s ease;
-  }
-  
-  
-  &:hover, :focus  {
-    ${ProjectOverlay} {
-      opacity: 1;
-    }
-    .arrow {
-      transform: scale(1);
-      transition: all .5s ease;
-    }
-    
-    .image {
-      transform: scale(1.25);
-      transition: all 1s ease;
-    }
-  }
-  @media ${mq.md} {
-  }
 `;
 
-
-const ProjectDetails = styled.div`
-  background-color: var(--background-color);
-  
-  z-index: 2;
-  padding: 1rem;
-  opacity: 0;
-  transition: all 0.3s ease;
-  color: var(--accent-color);
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-
-  p {
-    font-weight: 400;
-
-    @media ${mq.md} {
-      width: 60%;
-    }
-  }
-`;
-
-const ProjectImage = styled.div`
-  overflow: hidden;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
+const ProjectImageContainer = styled.div`
   position: relative;
-  border-radius: .75rem;
-`;
-const Container = styled(motion.div)`
-  border-radius: 1rem;
-
-  @media ${mq.md} {
-  }
-
-  &.large {
-  }
-  display: block;
-
-  &:hover,
-  :focus {
-    transform: scale(1);
-    ${ProjectImage} {
-      
-    }
-    ${ProjectDetails} {
-      opacity: 1;
-      backdrop-filter: blur(32px) saturate(300%);
-      transition: all 0.3s ease;
-    }
-  }
-`;
-
-const ProjectInfo = styled.div`
-  margin-top: 0.25rem;
-  z-index: 100;
   width: 100%;
+  border-radius: .5rem;
+  overflow: hidden;
+  width: 20%;
+
+  @media ${mq.sm} {
+    width: 15%;
+  }
+`
+const ProjectDetails = styled.div`
+  width: 80%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  font-size: 1rem;
-  color: var(--accent-color);
-  
+
+  @media ${mq.sm} {
+    width: 85%;
+  }
 
   p {
-    color: var(--accent-color);
+    
   }
-`;
+`
+const ProjectInfo = styled.div`
+  width: 70%;
+  h3 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  p {
+    font-family: var(--font-family-heading);
+    font-style: italic;
+    width: 80%;
+    color: var(--secondary-color);
+    font-size: .85rem;
+  }
+`
+
+
 
 

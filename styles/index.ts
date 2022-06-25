@@ -18,6 +18,10 @@ const SectionText = styled.p`
   font-weight: 400;
   font-size: 1rem;
   margin-bottom: 1rem;
+
+  & + figure {
+    margin-top: 2rem;
+  }
 `
 
 const SectionGrid = styled.div`

@@ -8,6 +8,7 @@ import { client } from "lib/sanity";
 import { Styled } from "styles";
 import { artPageQuery } from "lib/queries";
 import { ImageWithCaption } from "components/Modules";
+import { Marquee } from "components/Marquee";
 
 
 
@@ -30,8 +31,8 @@ const Art = ({ art }: { art: any }) => {
           <Styled.SectionText>{art.seo.description}</Styled.SectionText>
         </Styled.Section>
 
+        <Marquee>Art. Experiments. Designs.</Marquee>
         <Styled.Divider />
-
         <ImageContainer>
           {art.modules.map((module: any) => (
             <ImageRow key={module._key}>

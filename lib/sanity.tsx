@@ -48,7 +48,7 @@ const components = {
       <Styled.SectionHeading>{children}</Styled.SectionHeading>
     ),
     normal: ({ children }: PropsWithChildren) => (
-      <Styled.SectionText style={{ marginBottom: '2rem' }}>{children}</Styled.SectionText>
+      <Styled.SectionText>{children}</Styled.SectionText>
     ),
   },
   types: {
