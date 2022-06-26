@@ -20,7 +20,7 @@ export const SiteLink = ({ type="normal", children, href }: Props) => {
 const StyledLink = styled.a`
   display: inline-flex;
   /* width: fit-content; */
-  padding: .25rem .45rem .25rem .45rem;
+  padding: .1rem .45rem .1rem .45rem;
   border-radius: .5rem;
   align-items: center;
   gap: .25rem;

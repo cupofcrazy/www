@@ -1,5 +1,4 @@
 import { GetStaticProps } from "next";
-import { groq } from "next-sanity";
 import { Image } from "components/Image";
 import styled from "styled-components";
 import { CoverImage } from "components/Image/CoverImage";

@@ -52,15 +52,16 @@ const StyledLink = styled.a`
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  padding: .45rem;
   transition: all .3s ease;
   border: 1px solid transparent;
   border-radius: 1rem;
+  padding: .5rem .5rem .5rem 0;
   /* border: 1px solid var(--border-color);
   background-color: var(--border-color); */
   
   &:hover {
     /* border: 1px solid var(--border-color); */
+    padding: .5rem .5rem .5rem .5rem;
     background-color: var(--border-color);
     transition: all .3s ease;
   }
@@ -94,15 +95,15 @@ const ProjectDetails = styled.div`
 const ProjectInfo = styled.div`
   width: 70%;
   h3 {
-    font-size: 1rem;
+    font-family: var(--font-family-heading);
+    font-size: 1.5rem;
+    font-style: italic;
     font-weight: 500;
   }
   p {
-    font-family: var(--font-family-heading);
-    font-style: italic;
     width: 80%;
     color: var(--secondary-color);
-    font-size: .85rem;
+    font-size: 1rem;
   }
 `
 
