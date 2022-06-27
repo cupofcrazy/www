@@ -81,7 +81,8 @@ export default class MyDocument extends Document {
 
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap"
-           />
+            rel="stylesheet"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&display=swap"
             rel="stylesheet"
