@@ -87,10 +87,6 @@ const ProjectDetails = styled.div`
   @media ${mq.sm} {
     width: 85%;
   }
-
-  p {
-    
-  }
 `
 const ProjectInfo = styled.div`
   width: 70%;
@@ -103,7 +99,11 @@ const ProjectInfo = styled.div`
   p {
     width: 80%;
     color: var(--secondary-color);
-    font-size: 1rem;
+    font-size: .85rem;
+
+    @media ${mq.sm} {
+      font-size: 1rem;
+    }
   }
 `
 

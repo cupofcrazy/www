@@ -10,15 +10,15 @@ export const CoverImage = ({ children }: Props) => {
 
 const Container = styled.div`
   width: 240px;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   overflow: hidden;
 
   @media ${mq.sm} {
     border-radius: 1rem;
     width: 320px;
   }
-  @media ${mq.xl2} {
+  @media ${mq.xl} {
     border-radius: 1rem;
-    width: 480px;
+    width: 360px;
   }
 `;
