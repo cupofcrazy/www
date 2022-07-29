@@ -55,13 +55,13 @@ const StyledLink = styled.a`
   transition: all .3s ease;
   border: 1px solid transparent;
   border-radius: 1rem;
-  padding: .5rem .5rem .5rem 0;
+  padding: .5rem .5rem;
+  transform: scale(1.0);
   /* border: 1px solid var(--border-color);
   background-color: var(--border-color); */
   
   &:hover {
-    /* border: 1px solid var(--border-color); */
-    padding: .5rem .5rem .5rem .5rem;
+    transform: scale(1.01);
     background-color: var(--border-color);
     transition: all .3s ease;
   }

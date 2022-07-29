@@ -1,8 +1,7 @@
 import React from "react";
 import { Image } from "../components/Image";
-import { NextPage, GetServerSideProps, GetStaticProps } from "next";
+import { NextPage, GetStaticProps } from "next";
 import { client } from "../lib/sanity";
-import { groq } from "next-sanity";
 import styled from "styled-components";
 import { PageHead } from "../components/Seo";
 import { Styled } from "../styles";

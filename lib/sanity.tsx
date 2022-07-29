@@ -2,9 +2,8 @@ import {
   createClient,
   createImageUrlBuilder,
 } from "next-sanity";
+import styled from "styled-components";
 import { PortableText as PortableTextComponent } from "@portabletext/react";
-import { Image, type Props as ImageProps } from "components/Image";
-import { SiteLink } from "components/SiteLink";
 import { Styled } from "styles";
 import React from "react";
 import { ImageWithCaption } from "components/Modules";
@@ -20,6 +19,15 @@ const videoStyles = {
   overflow: "hidden",
 }
 
+const Link = styled.a`
+  color: var(--secondary-color);
+  background-color: var(--border-color);
+  /* padding: .1rem .5rem; */
+  /* border-radius: .5rem; */
+  display: inline-block;
+  /* text-decoration: underline; */
+`
+
 const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
@@ -31,7 +39,7 @@ const config = {
 const components = {
   marks: {
     link: ({ children, value }: { children: any; value: any }) => (
-      <SiteLink href={value.href}>{children}</SiteLink>
+      <Link href={value.href}>{children}</Link>
     ),
     span: ({ children }: PropsWithChildren) => (
       <Styled.SectionText>{children}</Styled.SectionText>

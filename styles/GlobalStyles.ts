@@ -84,7 +84,7 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 14px;
     }
     @media ${mq.xl3} {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 

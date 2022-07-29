@@ -1,7 +1,6 @@
-import type { GetServerSideProps, NextPage } from "next";
 import { useEffect } from "react";
+import type { GetServerSideProps, NextPage } from "next";
 import styled from "styled-components";
-import { groq } from "next-sanity";
 
 import { client } from "../lib/sanity";
 import { homeQuery, projectsQuery } from "../lib/queries";
@@ -31,7 +30,6 @@ const Home: NextPage<Props> = ({ home, projects }) => {
 
   useEffect(() => {
     // document.documentElement.style.setProperty("--vh", `${height}px`);
-    console.log(home)
   }, [height]);
 
   return (
