@@ -35,11 +35,54 @@ const config = {
   useCdn: process.env.NODE_ENV === "production",
 };
 
+const ExternalLink = styled.a`
+  color: var(--accent-color);
+  display: inline-block;
+  position: relative;
+  opacity: .5;
+  transition: all .3s ease;
+
+  &:hover {
+    color: var(--secondary-color);
+    opacity: 1;
+    transition: all .3s ease;
+
+    &:after {
+      width: 100%;
+      transition: all .3s ease;
+    }
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--accent-color);
+    /* margin-bottom: .5rem; */
+    bottom: 0;
+    left: 0;
+    opacity: .5;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 0%;
+    height: 1.5px;
+    background-color: var(--accent-color);
+    /* margin-bottom: .5rem; */
+    bottom: 0;
+    left: 0;
+    transition: all .3s ease;
+  }
+`
+
 // Custom Components for Sanity Block types
 const components = {
   marks: {
     link: ({ children, value }: { children: any; value: any }) => (
-      <Link href={value.href}>{children}</Link>
+      <ExternalLink href={value.href}>{children}</ExternalLink>
     ),
     span: ({ children }: PropsWithChildren) => (
       <Styled.SectionText>{children}</Styled.SectionText>
