@@ -1,14 +1,9 @@
-import {
-  createClient,
-  createImageUrlBuilder,
-} from "next-sanity";
+import { createClient, createImageUrlBuilder } from "next-sanity";
 import styled from "styled-components";
 import { PortableText as PortableTextComponent } from "@portabletext/react";
 import { Styled } from "styles";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { ImageWithCaption } from "components/Modules";
-
-type PropsWithChildren<T = any> = T & { children: React.ReactNode };
 
 const videoStyles = {
   maxWidth: "100%",
@@ -17,7 +12,7 @@ const videoStyles = {
   border: "1px solid var(--border-color)",
   borderRadius: ".75rem",
   overflow: "hidden",
-}
+};
 
 const Link = styled.a`
   color: var(--secondary-color);
@@ -26,7 +21,7 @@ const Link = styled.a`
   /* border-radius: .5rem; */
   display: inline-block;
   /* text-decoration: underline; */
-`
+`;
 
 const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
@@ -36,20 +31,21 @@ const config = {
 };
 
 const ExternalLink = styled.a`
+  --link-line-height: 1px;
   color: var(--accent-color);
   display: inline-block;
   position: relative;
-  opacity: .5;
-  transition: all .3s ease;
+  opacity: 0.5;
+  transition: all 0.3s ease;
 
   &:hover {
     color: var(--secondary-color);
     opacity: 1;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 
     &:after {
       width: 100%;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
     }
   }
   &:before {
@@ -57,48 +53,58 @@ const ExternalLink = styled.a`
     content: "";
     display: inline-block;
     width: 100%;
-    height: 1.5px;
+    height: var(--link-line-height);
     background-color: var(--accent-color);
     /* margin-bottom: .5rem; */
     bottom: 0;
     left: 0;
-    opacity: .5;
+    opacity: 0.5;
   }
   &:after {
     position: absolute;
     content: "";
     display: inline-block;
     width: 0%;
-    height: 1.5px;
+    height: var(--link-line-height);
     background-color: var(--accent-color);
     /* margin-bottom: .5rem; */
     bottom: 0;
     left: 0;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
   }
-`
+`;
 
 // Custom Components for Sanity Block types
 const components = {
   marks: {
-    link: ({ children, value }: { children: any; value: any }) => (
-      <ExternalLink href={value.href}>{children}</ExternalLink>
+    link: ({ children, value }: PropsWithChildren<{ value: any }>) => (
+      <ExternalLink href={value.href} target="_blank" rel="noopener noreferrer">
+        {children}
+      </ExternalLink>
     ),
-    span: ({ children }: PropsWithChildren) => (
+    span: ({ children }: PropsWithChildren<{}>) => (
       <Styled.SectionText>{children}</Styled.SectionText>
     ),
-    em: ({ children }: PropsWithChildren) => (
-      <span style={{ fontFamily: 'var(--font-family-heading)', fontStyle: 'italic' }}>{ children }</span>
-    )
+    em: ({ children }: PropsWithChildren<{}>) => (
+      <span
+        style={{
+          fontFamily: "var(--font-family-heading)",
+          fontStyle: "italic",
+          fontWeight: "500",
+        }}
+      >
+        {children}
+      </span>
+    ),
   },
   block: {
-    h2: ({ children }: PropsWithChildren) => (
+    h2: ({ children }: PropsWithChildren<{}>) => (
       <Styled.SectionHeading>{children}</Styled.SectionHeading>
     ),
-    h3: ({ children }: PropsWithChildren) => (
+    h3: ({ children }: PropsWithChildren<{}>) => (
       <Styled.SectionHeading>{children}</Styled.SectionHeading>
     ),
-    normal: ({ children }: PropsWithChildren) => (
+    normal: ({ children }: PropsWithChildren<{}>) => (
       <Styled.SectionText>{children}</Styled.SectionText>
     ),
   },
@@ -136,7 +142,8 @@ const components = {
 };
 
 export const urlFor = (src: string) => createImageUrlBuilder(config).image(src);
-export const imageBuilder = (src: string) => createImageUrlBuilder(config).image(src);
+export const imageBuilder = (src: string) =>
+  createImageUrlBuilder(config).image(src);
 export const PortableText = (props: any) => {
   console.log({ props });
   return <PortableTextComponent components={components} {...props} />;
