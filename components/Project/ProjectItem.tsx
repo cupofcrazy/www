@@ -1,12 +1,9 @@
-import cn from "classnames";
-import { ArrowIcon } from "components/ArrowIcon";
-import { BadgeList } from "components/Badge";
 import format from "date-fns/format";
-import { motion, type Variants } from "framer-motion";
+import { type Variants } from "framer-motion";
 import Link from "next/link";
 import styled from "styled-components";
 import { type ProjectDoc } from "../../types";
-import { ease, mq } from "../../utils";
+import { mq } from "../../utils";
 import { Badge } from "../Badge/Badge";
 import { Image } from "../Image";
 
