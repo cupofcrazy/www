@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <Container>
       <Content>
-        <p>✺ Building Interfaces.</p>
+        <p>✺ Crafting Interfaces.</p>
         <p>© {year}</p>
       </Content>
     </Container>
