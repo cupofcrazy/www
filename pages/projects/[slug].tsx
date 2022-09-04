@@ -41,10 +41,8 @@ const variants = {
 const ProjectPage: NextPage<Props> = ({ projects }) => {
   const ref = useRef<HTMLDivElement>()
   const onScreen = useOnScreen<HTMLDivElement>(ref)
-  
   const { project, previousProject, nextProject } = projects
 
-  
   return (
     <>
       <PageHead

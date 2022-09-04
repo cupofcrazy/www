@@ -61,6 +61,7 @@ export const GlobalStyles = createGlobalStyle`
     --blur-background: #ffffffd1;
     --font-family-base: 'Inter', sans-serif;
     --font-family-heading: 'Newsreader', sans-serif;
+    --pulse-color: rgba(0, 0, 0, .05)
     /* --vh */
   }
 
@@ -113,6 +114,7 @@ export const GlobalStyles = createGlobalStyle`
       --border-color: rgba(255, 255, 255, .15);
       --border-radius: .75rem;
       --blur-background: #1e1e1ed1;
+      --pulse-color: rgba(255, 255, 255, .05)
     }
   }
 

@@ -9,12 +9,12 @@ import { SiteLink } from "../components/SiteLink";
 import { CoverImage } from "../components/Image/CoverImage";
 import { BadgeList } from "../components/Badge";
 import { informationQuery } from "lib/queries";
+import { Marquee } from "components/Marquee";
 
 type Props = {
   info: any;
 };
 const Info: NextPage<Props> = ({ info }) => {
-  console.log({ info });
   return (
     <Content>
       <PageHead
@@ -73,13 +73,13 @@ const Info: NextPage<Props> = ({ info }) => {
           </Styled.SectionList>
         </Styled.Section>
       </Styled.SectionGrid>
+      <Marquee>Reach Out! Open for Collaborations.</Marquee>
     </Content>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
   const info = await client.fetch(informationQuery);
-  console.log({ info });
   return {
     props: {
       info,

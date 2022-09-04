@@ -145,7 +145,6 @@ export const urlFor = (src: string) => createImageUrlBuilder(config).image(src);
 export const imageBuilder = (src: string) =>
   createImageUrlBuilder(config).image(src);
 export const PortableText = (props: any) => {
-  console.log({ props });
   return <PortableTextComponent components={components} {...props} />;
 };
 

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { mq } from "../../utils";
 
+
 type BadgeProps = {
   textColor?: string;
   bgColor?: string;
