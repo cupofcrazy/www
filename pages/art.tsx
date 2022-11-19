@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { Image } from "components/Image";
 import styled from "styled-components";
 import { CoverImage } from "components/Image/CoverImage";
@@ -51,7 +51,7 @@ const Art = ({ art }: { art: any }) => {
 
 export default Art;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetServerSideProps = async () => {
   const art = await client.fetch(artPageQuery);
 
   return {

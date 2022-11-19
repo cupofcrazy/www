@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "../components/Image";
-import { NextPage, GetStaticProps } from "next";
+import { NextPage, GetServerSideProps } from "next";
 import { client } from "../lib/sanity";
 import styled from "styled-components";
 import { PageHead } from "../components/Seo";
@@ -78,7 +78,7 @@ const Info: NextPage<Props> = ({ info }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetServerSideProps = async () => {
   const info = await client.fetch(informationQuery);
   return {
     props: {
